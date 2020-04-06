@@ -8,7 +8,11 @@ It does not collect, store, or distribute any user private information witout th
 
 It uses only open source tools & libraries because there is no money. :)
 - Visual Studio Code
-- Survey.js Lirary (CDN)
+- Survey.js Lirary
 - Click to WhatsApp link
 - GitHub Pages
 - Plain HTML & JavaScript
+
+TODO
+- Separate out survey files from the app
+- Use WebPack for assets optimization (minify, combine, uglify, watch)
