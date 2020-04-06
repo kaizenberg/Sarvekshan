@@ -9,8 +9,8 @@ var json = {
         "es": "COVID-19 स्व-निर्धारण"
     },
     "completedHtml": {
-        "default": "<p>Thank you</p><p><a id=\"whatsAppLinkId\" href=\"#\">Send your answers to MyGov WhatsApp Helpline</a></p>",
-        "es": "<p>धन्यवाद</p><p><a id=\"whatsAppLinkId\" href=\"#\">अपने जवाब MyGov WhatsApp हेल्पलाइन पर भेजें</a></p>"
+        "default": "Thank you!",
+        "es": "धन्यवाद!"
     },
     "loadingHtml": {
         "default": "Please wait",
@@ -28,7 +28,8 @@ var json = {
                         "es": "<P>यह स्व-निर्धारण प्रपत्र COVID-19 (नोवेल कोरोनावायरस) संक्रमण के जोखिम के आपके स्तर के आधार पर आगे के चरणों का सुझाव देता है।</p><p>आप इस प्रपत्र को अपने या अन्य लोगों के लिए पूरा कर सकते हैं जो सक्षम नहीं हैं।</P>\n<a id=\"changeLanguageAnchor\" href=\"javascript:toggleLanguage();\">English</a>"
                     }
                 }
-            ]
+            ],
+            "readOnly": true
         },
         {
             "name": "Page 1",
@@ -243,8 +244,8 @@ var json = {
                     "type": "html",
                     "name": "R5",
                     "html": {
-                        "default": "<h1 style=\"color:orange;\">High Risk</h1>\n<p><strong><ul><li>You have higher risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\">Ministry of Health & Family Welfare</a>.</p>",
-                        "es": "<h1 style=\"color:orange;\">उच्च जोखिम</h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
+                        "default": "<h1 style=\"color:orange;\">High Risk</h1>\n<p><strong><ul><li>You have higher risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\">Ministry of Health & Family Welfare</a>.</p>\n<script type=\"text/javascript\">loadLink();</script>",
+                        "es": "<h1 style=\"color:orange;\">उच्च जोखिम</h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script type=\"text/javascript\">loadLink();</script>"
                     }
                 }
             ],
@@ -259,8 +260,8 @@ var json = {
                     "type": "html",
                     "name": "R4",
                     "html": {
-                        "default": "<h1 style = \"color: red;\">Seek Urgent Help</h1>\n<strong><p>Dial the national helpline number given below immediately.</strong>\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\"> Ministry of Health and Family Welfare</a>.</p>",
-                        "es": "<h1 style=\"color:red;\">तत्काल मदद लें</h1>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
+                        "default": "<h1 style = \"color: red;\">Seek Urgent Help</h1>\n<strong><p>Dial the national helpline number given below immediately.</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\"> Ministry of Health and Family Welfare</a>.</p><script type=\"text/javascript\">loadLink();</script>",
+                        "es": "<h1 style=\"color:red;\">तत्काल मदद लें</h1>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul><p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script type=\"text/javascript\">loadLink();</script>"
                     }
                 }
             ],
@@ -273,22 +274,21 @@ var json = {
     "showQuestionNumbers": "off",
     "startSurveyText": {
         "default": "Start",
-        "es": "शुरू"
+        "es": "शुरू करें"
     },
     "pagePrevText": {
-        "default": "Prev",
-        "es": "पीछे"
+        "default": "Previous",
+        "es": "पीछे जाएं"
     },
     "pageNextText": {
-        "es": "आगे",
+        "es": "आगे बढ़ें",
         "default": "Next"
     },
     "completeText": {
         "default": "Finish",
-        "es": "समाप्त"
+        "es": "समाप्त करें"
     },
-    "requiredText": "",
-    "firstPageIsStarted": true
+    "requiredText": ""
 };
 
 window.survey = new Survey.Model(json);
