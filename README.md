@@ -14,6 +14,7 @@ It uses only open source tools & libraries because there is no money. :)
 - Plain HTML & JavaScript
 
 TODO
+- Cache burst logic for assets
 - Separate out survey files from the app
 - Use WebPack for assets optimization (minify, combine, uglify, watch)
 
