@@ -1,8 +1,3 @@
-
-Survey
-    .StylesManager
-    .applyTheme("modern");
-
 var json = {
     "title": {
         "default": "COVID-19 Self Assessment",
@@ -212,8 +207,8 @@ var json = {
                     "type": "html",
                     "name": "R1",
                     "html": {
-                        "default": "<h1 style=\"color:lightgreen;\">Low Risk</h1>\n<p><strong><ul><li>You have low risk of COVID-19 infection</li><li>Follow social isolation & suggested measures</li><li>Do self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\">Ministry of Health & Family Welfare</a>.</p>",
-                        "es": "<h1 style=\"color:lightgreen;\">कम जोखिम </h1>\n<p><strong><ul><li>\nसामाजिक अलगाव और सुझाए गए उपायों का पालन करें</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
+                        "default": "<h1 style=\"color:lightgreen;\">Low Risk</h1>\n<p><strong><ul><li>You have low risk of COVID-19 infection</li><li>Follow social isolation & suggested measures</li><li>Do self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p>",
+                        "es": "<h1 style=\"color:lightgreen;\">कम जोखिम </h1>\n<p><strong><ul><li>\nसामाजिक अलगाव और सुझाए गए उपायों का पालन करें</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
                     }
                 }
             ],
@@ -228,8 +223,8 @@ var json = {
                     "type": "html",
                     "name": "R2",
                     "html": {
-                        "default": "<h1 style=\"color:skyblue;\">Medium Risk</h1>\n<p><strong><ul><li>You have moderate risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others for 7 days</li><li>It is NOT necessary for you to get tested for COVID-19 </li><li>Take the self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number given below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\">Ministry of Health & Family Welfare</a>.</p>",
-                        "es": "<h1 style=\"color:skyblue;\">मध्यम जोखिम </h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत 7 दिनों के लिए खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक नहीं है</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
+                        "default": "<h1 style=\"color:skyblue;\">Medium Risk</h1>\n<p><strong><ul><li>You have moderate risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others for 7 days</li><li>It is NOT necessary for you to get tested for COVID-19</li><li>Take the self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number given below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<a id=\"testingCentersMap\" href=\"javascript:getLocation();\">Find testing centers near you</a>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p>",
+                        "es": "<h1 style=\"color:skyblue;\">मध्यम जोखिम </h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत 7 दिनों के लिए खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक नहीं है</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<a id=\"testingCentersMap\" href=\"javascript:getLocation();\">नज़दीकी परिक्षण केंद्र खोजें</a>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
                     }
                 }
             ],
@@ -244,8 +239,8 @@ var json = {
                     "type": "html",
                     "name": "R5",
                     "html": {
-                        "default": "<h1 style=\"color:orange;\">High Risk</h1>\n<p><strong><ul><li>You have higher risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\">Ministry of Health & Family Welfare</a>.</p>\n<script type=\"text/javascript\">loadLink();</script>",
-                        "es": "<h1 style=\"color:orange;\">उच्च जोखिम</h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script type=\"text/javascript\">loadLink();</script>"
+                        "default": "<h1 style=\"color:orange;\">High Risk</h1>\n<p><strong><ul><li>You have higher risk of COVID-19 infection</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<a id=\"testingCentersMap\" href=\"javascript:getLocation();\">Find testing centers near you</a>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"javascript:openMyGovWhatsApp();\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p>\n",
+                        "es": "<h1 style=\"color:orange;\">उच्च जोखिम</h1>\n<p><strong><ul><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li></ul><a id=\"testingCentersMap\" href=\"javascript:getLocation();\">नज़दीकी परिक्षण केंद्र खोजें</a>\n<p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"javascript:openMyGovWhatsApp();\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
                     }
                 }
             ],
@@ -260,8 +255,8 @@ var json = {
                     "type": "html",
                     "name": "R4",
                     "html": {
-                        "default": "<h1 style = \"color: red;\">Seek Urgent Help</h1>\n<strong><p>Dial the national helpline number given below immediately.</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\"> Ministry of Health and Family Welfare</a>.</p><script type=\"text/javascript\">loadLink();</script>",
-                        "es": "<h1 style=\"color:red;\">तत्काल मदद लें</h1>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul><p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"#\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script type=\"text/javascript\">loadLink();</script>"
+                        "default": "<h1 style = \"color: red;\">Seek Urgent Help</h1>\n<strong><p>Dial the national helpline number given below immediately.</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\n<a id=\"testingCentersMap\" href=\"javascript:getLocation();\">Find testing centers near you</a>\n<p>You can also send your answers to <a id=\"whatsAppLinkId\" href=\"javascript:openMyGovWhatsApp();\">MyGov WhatsApp Helpline.<img src=\"assets/img/whatsapp.png\"/></a></p>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> Ministry of Health and Family Welfare</a>.</p>",
+                        "es": "<h1 style=\"color:red;\">तत्काल मदद लें</h1>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul><a id=\"testingCentersMap\" href=\"javascript:getLocation();\">नज़दीकी परिक्षण केंद्र खोजें</a><p>आप अपने जवाब <a id=\"whatsAppLinkId\" href=\"javascript:openMyGovWhatsApp();\">MyGov WhatsApp हेल्पलाइन<img src=\"assets/img/whatsapp.png\"/></a> पर भी भेज सकते हैं।</p>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p>"
                     }
                 }
             ],
@@ -291,9 +286,17 @@ var json = {
     "requiredText": ""
 };
 
+Survey
+    .StylesManager
+    .applyTheme("modern");
+
 window.survey = new Survey.Model(json);
 
-function loadLink() {
+$("#surveyElement").Survey({ model: survey });
+
+var lati, longi;
+
+function openMyGovWhatsApp() {
     var appendUrl = "*" + survey.title + "*{#}{#}";
     survey.getAllQuestions().map(function (q) {
         if (q.isParentVisible && !q.parent.readOnly) {
@@ -306,17 +309,28 @@ function loadLink() {
             }
         }
     })
-
     appendUrl = encodeURIComponent(appendUrl);
     appendUrl = appendUrl.replace(/%7B%23%7D/g, '%0A');
-    $('#whatsAppLinkId').attr('href', 'https://wa.me/919013151515?text=' + appendUrl);
+    window.open('https://wa.me/919013151515?text=' + appendUrl);
 };
-
-$("#surveyElement").Survey({ model: survey });
 
 // Will refactor this logic later
 function toggleLanguage() {
     survey.locale = survey.locale === 'es' ? 'en' : 'es';
     survey.clear();
     survey.render();
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(openICMRWebsite);
+    } else {
+        alert("Your location is not known or maps aren't working");
+    }
+}
+
+function openICMRWebsite(position) {
+    lati = position.coords.latitude;
+    longi = position.coords.longitude;
+    window.open(`https://covid.icmr.org.in/index.php#${lati}/${longi}/12`);
 }
