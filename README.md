@@ -11,7 +11,8 @@ It uses only open source tools & libraries because there is no money. :)
 - Survey.js Lirary
 - Click to WhatsApp link
 - GitHub Pages
-- Plain HTML & JavaScript
+- Plain HTML & JavaScript 
+- HTML5 Geolocation object
 
 TODO
 - Cache burst logic for assets
