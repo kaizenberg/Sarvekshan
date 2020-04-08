@@ -4,16 +4,19 @@ A simple little application but built in a week for a noble purpose.
 
 This application is only for the citizen's of India to take self-assessment in English or Hindi language to identify their level of risk of exposure to COVID-19/Novel Coronavirus.
 
-It does not collect, store, or distribute any user private information witout the consent of the end-user. There is not backend of the application.
+It does not collect, store, or distribute any user private information as there is not backend for this application.
 
 It uses only open source tools & libraries because there is no money. :)
 - Visual Studio Code
 - Survey.js Lirary
 - Click to WhatsApp link
 - GitHub Pages
-- Plain HTML & JavaScript
+- Plain HTML & JavaScript 
+- HTML5 Geolocation object
 
 TODO
+- Captcha/ I am not a robot test
+- Link to user privacy statement if needed
 - Cache burst logic for assets
 - Separate out survey files from the app
 - Use WebPack for assets optimization (minify, combine, uglify, watch)
