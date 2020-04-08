@@ -15,6 +15,7 @@ It uses only open source tools & libraries because there is no money. :)
 - HTML5 Geolocation object
 
 TODO
+- Captcha/ I am not a robot test
 - Link to user privacy statement if needed
 - Cache burst logic for assets
 - Separate out survey files from the app
