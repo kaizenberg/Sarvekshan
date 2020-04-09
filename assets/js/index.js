@@ -1,4 +1,5 @@
 var json = {
+    "locale": "es",
     "title": {
         "default": "COVID-19 Self Assessment",
         "es": "COVID-19 स्व-निर्धारण"
@@ -271,8 +272,8 @@ var json = {
                     "type": "html",
                     "name": "F1",
                     "html": {
-                        "default": "<p>Free online medical consultation provided by private companies:<ul><li><a href=\"https://www.practo.com/consult/direct/new_consultation\" target=\"_blank\">Practo<a/></li><li><a href=\"https://www.lybrate.com/lp/questions/ask\" target=\"_blank\">Lybrate<a/></li><li><a href=\"https://www.1mg.com/online-doctor-consultation\" target=\"_blank\">1mg<a/></li></ul></p>",
-                        "es": "<p>निजी कंपनियों द्वारा दी जाने वाली मुफ्त ऑनलाइन चिकित्सा परामर्श:<ul><li><a href=\"https://www.practo.com/consult/direct/new_consultation\" target=\"_blank\">Practo<a/></li><li><a href=\"https://www.lybrate.com/lp/questions/ask\" target=\"_blank\">Lybrate<a/></li><li><a href=\"https://www.1mg.com/online-doctor-consultation\" target=\"_blank\">1mg<a/></li></ul></p>"
+                        "default": "<p>Free online medical consultation provided by private companies:<ul><li><a href=\"https://www.practo.com/consult/direct/new_consultation\" target=\"_blank\">Practo<a/></li><li><a href=\"https://www.lybrate.com/lp/questions/ask\" target=\"_blank\">Lybrate<a/></li><li><a href=\"https://www.1mg.com/online-doctor-consultation\" target=\"_blank\">1mg<a/></li></ul></p>\n<p>Containment Zones:<ul><li><a href=\"http://stopcoronavirus.mcgm.gov.in/insights-on-map\" target=\"_blank\">Municipal Corporation of Greater Mumbai</li></ul></p>",
+                        "es": "<p>निजी कंपनियों द्वारा दी जाने वाली मुफ्त ऑनलाइन चिकित्सा परामर्श:<ul><li><a href=\"https://www.practo.com/consult/direct/new_consultation\" target=\"_blank\">प्रैक्टो<a/></li><li><a href=\"https://www.lybrate.com/lp/questions/ask\" target=\"_blank\">लिब्रटे<a/></li><li><a href=\"https://www.1mg.com/online-doctor-consultation\" target=\"_blank\">1एमजी<a/></li></ul></p>\n<p>रोकथाम क्षेत्र:<ul><li><a href=\"http://stopcoronavirus.mcgm.gov.in/insights-on-map\" target=\"_blank\">बृहन्मुंबई महानगरपालिका</li></ul></p>"
                     }
                 }
             ]
