@@ -13,6 +13,8 @@ It uses only open source tools & libraries because there is no money. :)
 - GitHub Pages
 - Plain HTML & JavaScript 
 - HTML5 Geolocation object
+- Velocity.js Library
+- [Dynamic QR Code](https://larsjung.de/kjua/)
 
 TODO
 - Captcha/ I am not a robot test
