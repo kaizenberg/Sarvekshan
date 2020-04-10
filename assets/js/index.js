@@ -92,17 +92,4 @@ survey
     .add(function (sender) {
         animate("fadeIn", 500);
     });
-survey
-    .onCompleting
-    .add(function (sender, options) {
-        if (!doAnimantion)
-            return;
-        options.allowComplete = false;
-        setTimeout(function () {
-            doAnimantion = false;
-            sender.doComplete();
-            doAnimantion = true;
-        }, 500);
-        animate("fadeOut", 500);
-    });
 animate("fadeIn", 1000);
