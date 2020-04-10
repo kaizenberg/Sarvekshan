@@ -53,8 +53,10 @@ function generateQrCode(colorCode, riskLevel) {
     clone.createdOn = today;
     clone.uid = "";
     var qrCodeImg = kjua({
+        crisp: true,
+        fill: colorCode,
         text: JSON.stringify(clone),
-        fill: colorCode
+        rounded: 100
     });
     // I don't know why JQuery version fails to render the image but plain old JavaScript does not
     document.getElementById("qrCodePlaceholder").appendChild(qrCodeImg);
@@ -65,17 +67,17 @@ function generateQrCode(colorCode, riskLevel) {
 
 
 function animate(animitionType, duration) {
-    if (!duration) 
+    if (!duration)
         duration = 1000;
     var element = document.getElementById("surveyElement");
-    $(element).velocity(animitionType, {duration: duration});
+    $(element).velocity(animitionType, { duration: duration });
 }
 
 var doAnimantion = true;
 survey
     .onCurrentPageChanging
     .add(function (sender, options) {
-        if (!doAnimantion) 
+        if (!doAnimantion)
             return;
         options.allowChanging = false;
         setTimeout(function () {
@@ -93,7 +95,7 @@ survey
 survey
     .onCompleting
     .add(function (sender, options) {
-        if (!doAnimantion) 
+        if (!doAnimantion)
             return;
         options.allowComplete = false;
         setTimeout(function () {
