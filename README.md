@@ -16,12 +16,13 @@ It uses only open source tools & libraries because there is no money. :)
 - [HTML5 Download Attribute](https://www.w3schools.com/tags/att_a_download.asp)
 - [Velocity.js Animations](http://velocityjs.org/)
 - [Dynamic QR Code](https://larsjung.de/kjua/)
+- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [Penetration Testing/Vulnerability Scanner](https://observatory.mozilla.org/)
 
 TODO
-- Cache burst logic for assets
 - Node.js package management
 - Code Refactoring for latest ECMA Script
-- Use WebPack for assets optimization (minify, combine, uglify, watch)
+- Use WebPack for assets optimization (minify, combine, uglify, watch, cache bursting)
 - reCaptcha/'I am not a robot' test (Optional)
 - Link to user privacy statement if needed (Optional)
 
