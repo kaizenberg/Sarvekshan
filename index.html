@@ -13,13 +13,21 @@
     <meta property="og:type" content="website" />
     <!--<meta property="og:updated_time" content="1440432930" />-->
 
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="form-action 'self'">
+
     <!--App Assets-->
     <link type="text/css" rel="stylesheet" href="assets/css/index.css" />
     <script type="text/javascript" src="assets/js/survey.js"></script>
 
     <!--3rd Party Assets-->
     <link type="text/css" rel="stylesheet" href="assets/css/vendor/modern.css" />
-    <script type="text/javascript" src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/jquery-3.5.0.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/survey.jquery.js"></script>
     <script type="text/javascript" src="assets/js/vendor/velocity.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/kjua-0.6.0.min.js"></script>

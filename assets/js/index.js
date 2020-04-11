@@ -8,7 +8,7 @@ $("#surveyElement").Survey({ model: survey });
 
 var lati, longi;
 
-function openMyGovWhatsApp() {
+function launchWhatsAppElement() {
     var appendUrl = "*" + survey.title + "*{#}{#}";
     survey.getAllQuestions().map(function (q) {
         if (q.isParentVisible && !q.parent.readOnly) {
@@ -31,9 +31,10 @@ function toggleLanguage() {
     survey.locale = survey.locale === 'es' ? 'en' : 'es';
     survey.clear();
     survey.render();
+    activateHyperlinks();
 }
 
-function getLocation() {
+function findTestingCenters() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(openICMRWebsite);
     } else {
@@ -50,8 +51,8 @@ function openICMRWebsite(position) {
 function generateQrCode(colorCode, riskLevel) {
     var clone = JSON.parse(JSON.stringify(survey.data));
     var today = new Date();
-    clone.createdOn = today;
-    clone.uid = "";
+    clone["Created On"] = today;
+    clone["Unique ID"] = "";
     var qrCodeImg = kjua({
         crisp: true,
         fill: colorCode,
@@ -71,6 +72,22 @@ function animate(animitionType, duration) {
         duration = 1000;
     var element = document.getElementById("surveyElement");
     $(element).velocity(animitionType, { duration: duration });
+    activateHyperlinks();
+}
+
+function activateHyperlinks() {
+    console.log('activating hyperlinks');
+    var ele1 = document.getElementById("findTestingCentersElement");
+    if (ele1)
+        ele1.onclick = findTestingCenters;
+
+    var ele2 = document.getElementById("launchWhatsAppElement");
+    if (ele2)
+        ele2.onclick = launchWhatsAppElement;
+
+    var ele3 = document.getElementById("toggleLanguageElement");
+    if (ele3)
+        ele3.onclick = toggleLanguage;
 }
 
 var doAnimantion = true;
