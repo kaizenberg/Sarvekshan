@@ -4,10 +4,6 @@ var json = {
         "default": "COVID-19 Self Assessment",
         "es": "COVID-19 स्व-निर्धारण"
     },
-    "logo": "favicon.ico",
-    "logoWidth": 40,
-    "logoHeight": 40,
-    "logoFit": "fill",
     "completedHtml": {
         "default": "Thank You!",
         "es": "धन्यवाद!"
