@@ -51,18 +51,21 @@ function openICMRWebsite(position) {
 function generateQrCode(colorCode, riskLevel) {
     var clone = JSON.parse(JSON.stringify(survey.data));
     var today = new Date();
+    clone["Risk Level"] = riskLevel;
     clone["Created On"] = today;
     clone["Unique ID"] = "";
-    var qrCodeImg = kjua({
-        crisp: true,
-        fill: colorCode,
-        text: JSON.stringify(clone),
-        rounded: 100
-    });
-    // I don't know why JQuery version fails to render the image but plain old JavaScript does not
-    document.getElementById("qrCodePlaceholder").appendChild(qrCodeImg);
-    var placeHolderChild = $('#qrCodePlaceholder > img');
-    $('#qrCodePlaceholder').attr('href', placeHolderChild.attr('src'));
+
+    var qrOptions = {
+        ecclevel: 'M',
+        fgColor: colorCode,
+        bgColor: 'white',
+        margin: 0
+    };
+
+    var imgData = QRCode.generatePNG(JSON.stringify(clone), qrOptions);
+
+    $('#qrCodePlaceholder').append("<img src='" + imgData + "'/>");
+    $('#qrCodePlaceholder').attr('href', imgData);
     $('#qrCodePlaceholder').attr('download', today.getDate() + '-' + today.getMonth() + '-' + today.getFullYear() + '.png');
 }
 
@@ -76,7 +79,6 @@ function animate(animitionType, duration) {
 }
 
 function activateHyperlinks() {
-    console.log('activating hyperlinks');
     var ele1 = document.getElementById("findTestingCentersElement");
     if (ele1)
         ele1.onclick = findTestingCenters;
