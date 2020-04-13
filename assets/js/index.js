@@ -53,7 +53,7 @@ function generateQrCode(colorCode, riskLevel) {
     var today = new Date();
     clone["Risk Level"] = riskLevel;
     clone["Created On"] = today;
-    clone["Unique ID"] = "";
+    clone["Unique ID"] = new ClientJS().getFingerprint();
 
     var qrOptions = {
         ecclevel: 'M',
@@ -64,7 +64,7 @@ function generateQrCode(colorCode, riskLevel) {
 
     var imgData = QRCode.generatePNG(JSON.stringify(clone), qrOptions);
 
-    $('#qrCodePlaceholder').append("<img src='" + imgData + "'/>");
+    $('#qrCodePlaceholder').append("<img src='" + imgData + "' height='200px' width='200px'/>");
     $('#qrCodePlaceholder').attr('href', imgData);
     $('#qrCodePlaceholder').attr('download', today.getDate() + '-' + today.getMonth() + '-' + today.getFullYear() + '.png');
 }
