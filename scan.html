@@ -26,8 +26,18 @@
     <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
     <script type="text/javascript" src="assets/js/vendor/jquery-3.5.0.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
-    <script type=" text/javascript" src="assets/js/vendor/jsqrcode-combined.js"></script>
-    <script type=" text/javascript" src="assets/js/vendor/html5-qrcode.js"></script>
+    <script type=" text/javascript" src="assets/js/vendor/jsQR.js"></script>
+    <style>
+        #camera video {
+            height: 100%;
+            width: 100%;
+        }
+
+        #camera img,
+        #camera canvas {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +58,6 @@
     </nav>
     <div class="container">
         <br>
-
         <div class="row">
             <aside class="col-sm-6">
                 <div class="card">
@@ -56,7 +65,14 @@
                         <h5 class="card-title">QR Code</h5>
                     </div>
                     <div class="card-body">
-                        <div id="scanner"></div>
+                        <main id="camera">
+                            <!-- Camera sensor -->
+                            <canvas></canvas>
+                            <!-- Camera view -->
+                            <video autoplay playsinline></video>
+                            <!-- Camera output (need for image processing) -->
+                            <img src="//:0" alt="Camera preview" />
+                        </main>
                     </div>
                     <div class="card-footer">
                         <div class="row">
@@ -66,10 +82,12 @@
                             <div class="col-sm-auto">
                                 <button id="stopScanning" class="btn btn-primary" disabled>Stop</button>
                             </div>
+                            <div class="col-sm-auto my-auto">
+                                <span id="statusMsg" class="card-text" disabled></button>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- card.// -->
-
             </aside> <!-- col.// -->
             <aside class="col-sm-6">
                 <div class="card">
@@ -88,10 +106,8 @@
                         </div>
                     </div>
                 </div>
-
             </aside> <!-- col.// -->
         </div> <!-- row.// -->
-
     </div>
     <!--container end.//-->
     <!--App Assets-->
