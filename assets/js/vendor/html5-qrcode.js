@@ -140,22 +140,22 @@ var Html5Qrcode = /*#__PURE__*/function () {
         if ($this._localMediaStream) {
           // Only decode the relevant area, ignore the shaded area.
           context.drawImage(videoElement,
-            /* sx= */
-            qrRegion.x,
-            /* sy= */
-            qrRegion.y,
-            /* sWidth= */
-            qrRegion.width,
-            /* sHeight= */
-            qrRegion.height,
-            /* dx= */
-            0,
-            /* dy= */
-            0,
-            /* dWidth= */
-            qrRegion.width,
-            /* dHeight= */
-            qrRegion.height);
+          /* sx= */
+          qrRegion.x,
+          /* sy= */
+          qrRegion.y,
+          /* sWidth= */
+          qrRegion.width,
+          /* sHeight= */
+          qrRegion.height,
+          /* dx= */
+          0,
+          /* dy= */
+          0,
+          /* dWidth= */
+          qrRegion.width,
+          /* dHeight= */
+          qrRegion.height);
 
           try {
             qrcode.decode();
@@ -223,8 +223,8 @@ var Html5Qrcode = /*#__PURE__*/function () {
       clearTimeout(this._foreverScanTimeout);
       var $this = this;
       return new Promise(function (resolve,
-        /* ignore */
-        reject) {
+      /* ignore */
+      reject) {
         var tracksToClose = $this._localMediaStream.getVideoTracks().length;
 
         var tracksClosed = 0; // Removes the shaded region if exists.

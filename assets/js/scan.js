@@ -16,6 +16,7 @@ document.getElementById('startScanning').addEventListener('click', function () {
     console.log('Starting');
     Html5Qrcode.getCameras().then(cameras => {
         if (cameras.length == 0) {
+            console.log('No device found');
             $("#startScanning").prop("disabled", false);
             $("#stopScanning").prop("disabled", true);
             $("#sendOtp").prop("disabled", true);
@@ -23,13 +24,13 @@ document.getElementById('startScanning').addEventListener('click', function () {
             return;
         }
         html5QrCode.start(
-            cameras[0].id,
+            cameras[0],
             { fps: 10, qrbox: 250 },
             function (message) {
                 $("#startScanning").prop("disabled", true);
                 $("#stopScanning").prop("disabled", false);
                 $("#sendOtp").prop("disabled", true);
-
+                console.log(message);
                 jsonData = JSON.parse(message);
 
                 var html = "";
