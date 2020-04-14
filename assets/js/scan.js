@@ -82,9 +82,11 @@ const scan = () => {
 
     // If QR code is found
     if (qrCode != null) {
+        cameraView.pause();
         $("#statusMsg").text("Detected!");
 
         $("#eVerify").prop("disabled", false);
+        $("#scannedData").html("");
         var html = "";
 
         jQuery.each(JSON.parse(qrCode.data), function (name, val) {
@@ -92,7 +94,11 @@ const scan = () => {
         });
 
         $("#scannedData").append(html);
-
-        window.setInterval($("#statusMsg").text("Scanning..."), 2000);
+        $('#modalCenter').modal('show');
     }
 }
+
+$('#modalCenter').on('hidden.bs.modal', function (e) {
+    cameraView.play();
+    $("#statusMsg").text("Scanning...");
+})
