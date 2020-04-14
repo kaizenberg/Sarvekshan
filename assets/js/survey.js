@@ -252,7 +252,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Found COVID19 Positive} = 'No' or {Treated for COVID19} = 'No' and {Severe Respiratory Condition} = 'No'"
+            "visibleIf": "{Severe Respiratory Condition} = 'No'"
         },
         {
             "name": "Page 3",
