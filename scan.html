@@ -56,15 +56,12 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <br>
-        <div class="row">
-            <aside class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">QR Code</h5>
-                    </div>
-                    <div class="card-body">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-auto">
                         <main id="camera">
                             <!-- Camera sensor -->
                             <canvas></canvas>
@@ -74,40 +71,29 @@
                             <img src="//:0" alt="Camera preview" />
                         </main>
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-auto">
-                                <button id="startScanning" class="btn btn-primary">Start</button>
-                            </div>
-                            <div class="col-sm-auto">
-                                <button id="stopScanning" class="btn btn-primary" disabled>Stop</button>
-                            </div>
-                            <div class="col-sm-auto my-auto">
-                                <span id="statusMsg" class="card-text" disabled></button>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- card.// -->
-            </aside> <!-- col.// -->
-            <aside class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Verify User</h5>
-                    </div>
-                    <div class="card-body">
+                    <div class="col-sm-auto">
                         <div id="scannedData">
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-auto">
-                                <button id="requestOtp" class="btn btn-primary" disabled>Send e-OTP</button>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-auto">
+                        <button id="startScanning" class="btn btn-primary">Start</button>
+                    </div>
+                    <div class="col-sm-auto">
+                        <button id="stopScanning" class="btn btn-primary" disabled>Stop</button>
+                    </div>
+                    <div class="col-sm-auto">
+                        <button id="requestOtp" class="btn btn-primary" disabled>Send e-OTP</button>
+                    </div>
+                    <div class="col-sm-auto my-auto">
+                        <span id="statusMsg" class="card-text"></span>
                     </div>
                 </div>
-            </aside> <!-- col.// -->
-        </div> <!-- row.// -->
+            </div>
+        </div>
     </div>
     <!--container end.//-->
     <!--App Assets-->
