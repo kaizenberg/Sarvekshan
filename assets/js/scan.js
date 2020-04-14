@@ -1,5 +1,18 @@
 // Set constraints for the video stream
-var constraints = { video: { facingMode: "environment" }, audio: false };
+var constraints = {
+    video: {
+        facingMode: "environment",
+        width: {
+            ideal: 1280,
+            max: 1920
+        },
+        height: {
+            ideal: 720,
+            max: 1080
+        }
+    },
+    audio: false
+};
 let localMediaStream;
 
 // Define constants
