@@ -1,5 +1,4 @@
 var json = {
-    "locale": "es",
     "title": {
         "default": "COVID-19 Self Assessment",
         "es": "COVID-19 स्व-निर्धारण"
@@ -24,24 +23,57 @@ var json = {
             "readOnly": true
         },
         {
-            "name": "Page 1",
+            "name": "Hospitalization",
             "elements": [
                 {
                     "type": "html",
-                    "name": "Q1",
+                    "name": "HQ1",
                     "html": {
-                        "default": "<p>Are you experiencing any of the following symptoms:</p><ul><li>Sudden difficulty in breathing, such as:<ul><li>gasping for air while talking</li><li>shortness of breath at rest</li><li>difficulty in breathing after lying down</li></ul></li><li>Chest pain</li><li>Difficulty in waking up</li><li>Fainting, or losing consciousness</li><li>Difficulty in performing daily routine</li><li>Increased symptoms of existing respiratory illness</li></ul>",
-                        "es": "<p>क्या आप निम्नलिखित लक्षणों में से किसी का अनुभव कर रहे हैं:</p><ul><li>अचानक साँस लेने में कठिनाई, जैसे:<ul><li>बात करते समय हवा के लिए हांफना</li><li>बिना किसी हलचल के भी सांस फूलना</li><li>लेटने के बाद सांस लेने में कठिनाई</li></ul></li><li>छाती में दर्द</li><li>नींद से जागने में कठिनाई</li><li>बेहोशी, या होश खो देना</li><li>दैनिक दिनचर्या करने में कठिनाई</li><li>मौजूदा श्वसन बीमारी के बढ़ते लक्षण</li><ul>"
+                        "default": "<p>Have you been discharged from hospital in the past 30 days due to recovery?</p>",
+                        "es": "<p>ठीक होने के कारण पिछले 30 दिनों में आपको अस्पताल से छुट्टी दे दी गई?</p>"
                     }
                 },
                 {
                     "type": "radiogroup",
-                    "name": "Severe Respiratory Condition",
-                    "title": {
-                        "default": "Select your answer",
-                        "es": "अपना जवाब चुनें"
-                    },
+                    "name": "Discharged from Hospital",
                     "isRequired": true,
+                    "requiredErrorText": {
+                        "es": "एक विकल्प चुनें"
+                    },
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "text": {
+                                "default": "Yes",
+                                "es": "हाँ"
+                            }
+                        },
+                        {
+                            "value": "No",
+                            "text": {
+                                "default": "No",
+                                "es": "नहीं"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "name": "HQ2",
+                    "visible": false,
+                    "visibleIf": "{Discharged from Hospital} = 'Yes'",
+                    "html": {
+                        "default": "<p>Were you treated for COVID-19 infection?</p>",
+                        "es": "<p>क्या आपका COVID-19 संक्रमण के लिए इलाज किया गया था?</p>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Treated for COVID19",
+                    "visible": false,
+                    "visibleIf": "{Discharged from Hospital} = 'Yes'",
+                    "requiredIf": "{Discharged from Hospital} = 'Yes'",
                     "requiredErrorText": {
                         "es": "एक विकल्प चुनें"
                     },
@@ -66,23 +98,96 @@ var json = {
             ]
         },
         {
-            "name": "Page 2",
+            "name": "Testing",
             "elements": [
                 {
                     "type": "html",
-                    "name": "Q2",
+                    "name": "TQ1",
                     "html": {
-                        "default": "<p>Are you experiencing any of the following symptoms:</p><ul><li>Fever\n</li><li>Cough</li><li>Shortness of breath</li><li>Sore throat</li><li>Muscle aches</li><li>Cold, Runny nose</li></ul>",
-                        "es": "<p>क्या आप निम्नलिखित लक्षणों में से किसी का अनुभव कर रहे हैं:</p><ul><li>बुखार</li><li>खांसी</li><li>सांस लेने में दिक्कत</li><li>गले में खराश</li><li>मांसपेशियों में दर्द</li><li>सर्दी, बहती नाक</li></ul>"
+                        "default": "<p>Have you undergone COVID-19 tests in the past 7 days?</p>",
+                        "es": "<p>क्या आपने पिछले 7 दिनों में COVID-19 परीक्षण किए हैं?</p>"
                     }
                 },
                 {
                     "type": "radiogroup",
-                    "name": "Flu Symptoms",
-                    "title": {
-                        "default": "Select your answer",
-                        "es": "अपना जवाब चुनें"
+                    "name": "Tested for COVID19",
+                    "isRequired": true,
+                    "requiredErrorText": {
+                        "es": "एक विकल्प चुनें"
                     },
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "text": {
+                                "default": "Yes",
+                                "es": "हाँ"
+                            }
+                        },
+                        {
+                            "value": "No",
+                            "text": {
+                                "default": "No",
+                                "es": "नहीं"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "name": "TQ2",
+                    "visible": false,
+                    "visibleIf": "{Tested for COVID19} = 'Yes'",
+                    "html": {
+                        "default": "<p>Were you declared COVID-19 positive?</p>",
+                        "es": "<p>क्या आप COVID-19 पॉजिटिव माने गए थे?</p>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Found COVID19 Positive",
+                    "visible": false,
+                    "visibleIf": "{Tested for COVID19} = 'Yes'",
+                    "requiredIf": "{Tested for COVID19} = 'Yes'",
+                    "requiredErrorText": {
+                        "es": "एक विकल्प चुनें"
+                    },
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "text": {
+                                "default": "Yes",
+                                "es": "हाँ"
+                            }
+                        },
+                        {
+                            "value": "No",
+                            "text": {
+                                "default": "No",
+                                "es": "नहीं"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "visible": false,
+            "visibleIf": "{Discharged from Hospital} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No'"
+        },
+        {
+            "name": "Page 1",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "Q1",
+                    "html": {
+                        "default": "<p>Are you experiencing any of the following symptoms:</p><ul><li>Sudden difficulty in breathing, such as:<ul><li>gasping for air while talking</li><li>shortness of breath at rest</li><li>difficulty in breathing after lying down</li></ul></li><li>Chest pain</li><li>Difficulty in waking up</li><li>Fainting, or losing consciousness</li><li>Difficulty in performing daily routine</li><li>Increased symptoms of existing respiratory illness</li></ul>",
+                        "es": "<p>क्या आप निम्नलिखित लक्षणों में से किसी का अनुभव कर रहे हैं:</p><ul><li>अचानक साँस लेने में कठिनाई, जैसे:<ul><li>बात करते समय हवा के लिए हांफना</li><li>बिना किसी हलचल के भी सांस फूलना</li><li>लेटने के बाद सांस लेने में कठिनाई</li></ul></li><li>छाती में दर्द</li><li>नींद से जागने में कठिनाई</li><li>बेहोशी, या होश खो देना</li><li>दैनिक दिनचर्या करने में कठिनाई</li><li>मौजूदा श्वसन बीमारी के बढ़ते लक्षण</li><ul>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Severe Respiratory Condition",
                     "isRequired": true,
                     "requiredErrorText": {
                         "es": "एक विकल्प चुनें"
@@ -107,7 +212,47 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No'"
+            "visibleIf": "{Discharged from Hospital} = 'No' and {Tested for COVID19} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No' and {Tested for COVID19} = 'No' or {Discharged from Hospital} = 'No' and {Tested for COVID19} = 'Yes' and {Found COVID19 Positive} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No' and {Tested for COVID19} = 'Yes' and {Found COVID19 Positive} = 'No'"
+        },
+        {
+            "name": "Page 2",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "Q2",
+                    "html": {
+                        "default": "<p>Are you experiencing any of the following symptoms:</p><ul><li>Fever\n</li><li>Cough</li><li>Shortness of breath</li><li>Sore throat</li><li>Muscle aches</li><li>Cold, Runny nose</li></ul>",
+                        "es": "<p>क्या आप निम्नलिखित लक्षणों में से किसी का अनुभव कर रहे हैं:</p><ul><li>बुखार</li><li>खांसी</li><li>सांस लेने में दिक्कत</li><li>गले में खराश</li><li>मांसपेशियों में दर्द</li><li>सर्दी, बहती नाक</li></ul>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Flu Symptoms",
+                    "isRequired": true,
+                    "requiredErrorText": {
+                        "es": "एक विकल्प चुनें"
+                    },
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "text": {
+                                "default": "Yes",
+                                "es": "हाँ"
+                            }
+                        },
+                        {
+                            "value": "No",
+                            "text": {
+                                "default": "No",
+                                "es": "नहीं"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "visible": false,
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Found COVID19 Positive} = 'No' or {Treated for COVID19} = 'No' and {Severe Respiratory Condition} = 'No'"
         },
         {
             "name": "Page 3",
@@ -123,10 +268,6 @@ var json = {
                 {
                     "type": "radiogroup",
                     "name": "Close Contact With Infected",
-                    "title": {
-                        "default": "Select your answer",
-                        "es": "अपना जवाब चुनें"
-                    },
                     "isRequired": true,
                     "requiredErrorText": {
                         "es": "एक विकल्प चुनें"
@@ -167,10 +308,6 @@ var json = {
                 {
                     "type": "radiogroup",
                     "name": "Traveled OR Attended Social Event",
-                    "title": {
-                        "default": "Select your answer",
-                        "es": "अपना जवाब चुनें"
-                    },
                     "isRequired": true,
                     "requiredErrorText": {
                         "es": "एक विकल्प चुनें"
@@ -226,7 +363,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No'",
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'Yes'",
             "readOnly": true
         },
         {
@@ -258,7 +395,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'Yes'",
+            "visibleIf": "{Severe Respiratory Condition} = 'Yes' or {Tested for COVID19} = 'Yes' and {Found COVID19 Positive} = 'Yes'",
             "readOnly": true
         },
         {
