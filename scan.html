@@ -24,7 +24,7 @@
     <!--App Assets-->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
-    <script type="text/javascript" src="assets/js/vendor/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
     <script type=" text/javascript" src="assets/js/vendor/jsQR.js"></script>
     <style>
@@ -69,6 +69,8 @@
                             <video autoplay playsinline></video>
                             <!-- Camera output (need for image processing) -->
                             <img src="//:0" alt="Camera preview" />
+                            <span id="statusMsg" class="card-text"></span>
+
                         </main>
                     </div>
                     <div class="col-sm-auto">
@@ -78,19 +80,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="row">
-                    <div class="col-sm-auto">
-                        <button id="startScanning" class="btn btn-primary">Start</button>
-                    </div>
-                    <div class="col-sm-auto">
-                        <button id="stopScanning" class="btn btn-primary" disabled>Stop</button>
-                    </div>
-                    <div class="col-sm-auto">
-                        <button id="requestOtp" class="btn btn-primary" disabled>Send e-OTP</button>
-                    </div>
-                    <div class="col-sm-auto my-auto">
-                        <span id="statusMsg" class="card-text"></span>
-                    </div>
+                <div class="btn-group-lg" role="group" aria-label="Basic example">
+                    <button id="startScanning" type="button" class="btn btn-secondary">Start</button>
+                    <button id="stopScanning" type="button" class="btn btn-secondary">Stop</button>
+                    <button id="eVerify" type="button" class="btn btn-secondary">eVerify</button>
                 </div>
             </div>
         </div>

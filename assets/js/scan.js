@@ -12,7 +12,7 @@ document.getElementById('stopScanning').addEventListener('click', function () {
 
     $("#startScanning").prop("disabled", false);
     $("#stopScanning").prop("disabled", true);
-    $("#sendOtp").prop("disabled", true);
+    $("#eVerify").prop("disabled", true);
     $("#scannedData").html("");
 
     //stop the stream and cancel timeouts
@@ -29,6 +29,8 @@ document.getElementById('startScanning').addEventListener('click', function () {
 
     $("#startScanning").prop("disabled", true);
     $("#stopScanning").prop("disabled", false);
+    $("#eVerify").prop("disabled", true);
+    $("#scannedData").html("");
 
     navigator.mediaDevices
         .getUserMedia(constraints)
@@ -69,8 +71,7 @@ const scan = () => {
     if (qrCode != null) {
         $("#statusMsg").text("Detected!");
 
-        $("#sendOtp").prop("disabled", false);
-        $("#scannedData").html("");
+        $("#eVerify").prop("disabled", false);
         var html = "";
 
         jQuery.each(JSON.parse(qrCode.data), function (name, val) {

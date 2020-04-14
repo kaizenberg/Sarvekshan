@@ -53,8 +53,8 @@ function generateQrCode(colorCode, riskLevel) {
     var today = new Date();
     clone["Risk Level"] = riskLevel;
     clone["Created On"] = today;
-    var userKey = new ClientJS().getFingerprint(); // Generate User Id
-    clone["Unique ID"] = userKey; // Protect the User Id
+    clone["Device ID"] = new ClientJS().getFingerprint(); // Auto-generated Device ID
+    clone["Unique ID"] = UUID.generate(); // Unique ID issued by government
 
     var qrOptions = {
         ecclevel: 'M',
