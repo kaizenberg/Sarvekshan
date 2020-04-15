@@ -1,7 +1,4 @@
 # Sarvekshan
-
-Web tool is accessible @ https://kaizenberg.github.io/Sarvekshan/
-Documentation is available @ https://github.com/kaizenberg/Sarvekshan/blob/master/README.md 
  
 This web app/tool is a POC for showcasing how technolgy can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy.
 
