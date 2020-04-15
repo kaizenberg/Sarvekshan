@@ -1,6 +1,6 @@
 # Sarvekshan
  
-This web app/tool is a POC for showcasing how technolgy can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy.
+This web tool is currently a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting of lock down restrictons for people may not be infected, especially considering that 21 days of lockdown are already over.
 
 How is this tool better?
 - This tool is more useful than Government of India's Arogya Setu App. 
