@@ -1,4 +1,5 @@
 var json = {
+    "locale": "es",
     "title": {
         "default": "COVID-19 Self Assessment",
         "es": "COVID-19 स्व-निर्धारण"
@@ -16,7 +17,7 @@ var json = {
                     "name": "Intro",
                     "html": {
                         "default": "<P>This self-assessment form suggests further steps depending on your level of risk of exposure to COVID-19 (Novel Coronavirus). You can complete this form for yourself or others who are not able.</P>\n<p><i><sup>Privacy Statement: This tool does not collect, store or distribute any user sensitive information.</sup></i></p><p><sup><a id=\"toggleLanguageElement\" href=\"#\">हिंदी के लिए <a/></sup></p>",
-                        "es": "<P>यह स्व-निर्धारण प्रपत्र COVID-19 (नोवेल कोरोनावायरस) संक्रमण के जोखिम के आपके स्तर के आधार पर आगे के चरणों का सुझाव देता है। आप इस प्रपत्र को अपने या अन्य लोगों के लिए पूरा कर सकते हैं जो सक्षम नहीं हैं।</P>\n<p><i><sup>गोपनीयता कथन: यह उपकरण किसी भी उपयोगकर्ता की संवेदनशील जानकारी को एकत्रित, संग्रहीत या वितरित नहीं करता है।<sup></i></p>\n<p>\n<sup><a id=\"toggleLanguageElement\" href=\"#\">For English</a><sup></p>"
+                        "es": "<P>यह स्व-निर्धारण प्रपत्र COVID-19 (नोवेल कोरोनावायरस) संक्रमण के जोखिम के आपके स्तर के आधार पर आगे के चरणों का सुझाव देता है। आप इस प्रपत्र को अपने या अन्य लोगों के लिए पूरा कर सकते हैं जो सक्षम नहीं हैं।</P>\n<p><i><sup>गोपनीयता कथन: यह उपकरण किसी भी उपयोगकर्ता की संवेदनशील जानकारी को संग्रहीत या वितरित नहीं करता है।<sup></i></p>\n<p>\n<sup><a id=\"toggleLanguageElement\" href=\"#\">For English</a><sup></p>"
                     }
                 }
             ],
@@ -29,8 +30,8 @@ var json = {
                     "type": "html",
                     "name": "HQ1",
                     "html": {
-                        "default": "<p>Have you been discharged from hospital in the past 30 days due to recovery?</p>",
-                        "es": "<p>ठीक होने के कारण पिछले 30 दिनों में आपको अस्पताल से छुट्टी दे दी गई?</p>"
+                        "default": "<p>Have you received any treatment in any  hospital in the past 7 days?</p>",
+                        "es": "<p>क्या आपने पिछले 7 दिनों में किसी भी अस्पताल में कोई उपचार प्राप्त किया है?</p>"
                     }
                 },
                 {
@@ -57,122 +58,8 @@ var json = {
                             }
                         }
                     ]
-                },
-                {
-                    "type": "html",
-                    "name": "HQ2",
-                    "visible": false,
-                    "visibleIf": "{Discharged from Hospital} = 'Yes'",
-                    "html": {
-                        "default": "<p>Were you treated for COVID-19 infection?</p>",
-                        "es": "<p>क्या आपका COVID-19 संक्रमण के लिए इलाज किया गया था?</p>"
-                    }
-                },
-                {
-                    "type": "radiogroup",
-                    "name": "Treated for COVID19",
-                    "visible": false,
-                    "visibleIf": "{Discharged from Hospital} = 'Yes'",
-                    "requiredIf": "{Discharged from Hospital} = 'Yes'",
-                    "requiredErrorText": {
-                        "es": "एक विकल्प चुनें"
-                    },
-                    "titleLocation": "hidden",
-                    "choices": [
-                        {
-                            "value": "Yes",
-                            "text": {
-                                "default": "Yes",
-                                "es": "हाँ"
-                            }
-                        },
-                        {
-                            "value": "No",
-                            "text": {
-                                "default": "No",
-                                "es": "नहीं"
-                            }
-                        }
-                    ]
                 }
             ]
-        },
-        {
-            "name": "Testing",
-            "elements": [
-                {
-                    "type": "html",
-                    "name": "TQ1",
-                    "html": {
-                        "default": "<p>Have you undergone COVID-19 tests in the past 7 days?</p>",
-                        "es": "<p>क्या आपने पिछले 7 दिनों में COVID-19 परीक्षण किए हैं?</p>"
-                    }
-                },
-                {
-                    "type": "radiogroup",
-                    "name": "Tested for COVID19",
-                    "isRequired": true,
-                    "requiredErrorText": {
-                        "es": "एक विकल्प चुनें"
-                    },
-                    "titleLocation": "hidden",
-                    "choices": [
-                        {
-                            "value": "Yes",
-                            "text": {
-                                "default": "Yes",
-                                "es": "हाँ"
-                            }
-                        },
-                        {
-                            "value": "No",
-                            "text": {
-                                "default": "No",
-                                "es": "नहीं"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "html",
-                    "name": "TQ2",
-                    "visible": false,
-                    "visibleIf": "{Tested for COVID19} = 'Yes'",
-                    "html": {
-                        "default": "<p>Were you declared COVID-19 positive?</p>",
-                        "es": "<p>क्या आप COVID-19 पॉजिटिव माने गए थे?</p>"
-                    }
-                },
-                {
-                    "type": "radiogroup",
-                    "name": "Found COVID19 Positive",
-                    "visible": false,
-                    "visibleIf": "{Tested for COVID19} = 'Yes'",
-                    "requiredIf": "{Tested for COVID19} = 'Yes'",
-                    "requiredErrorText": {
-                        "es": "एक विकल्प चुनें"
-                    },
-                    "titleLocation": "hidden",
-                    "choices": [
-                        {
-                            "value": "Yes",
-                            "text": {
-                                "default": "Yes",
-                                "es": "हाँ"
-                            }
-                        },
-                        {
-                            "value": "No",
-                            "text": {
-                                "default": "No",
-                                "es": "नहीं"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "visible": false,
-            "visibleIf": "{Discharged from Hospital} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No'"
         },
         {
             "name": "Page 1",
@@ -212,7 +99,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Discharged from Hospital} = 'No' and {Tested for COVID19} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No' and {Tested for COVID19} = 'No' or {Discharged from Hospital} = 'No' and {Tested for COVID19} = 'Yes' and {Found COVID19 Positive} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'No' and {Tested for COVID19} = 'Yes' and {Found COVID19 Positive} = 'No'"
+            "visibleIf": "{Discharged from Hospital} = 'No'"
         },
         {
             "name": "Page 2",
@@ -363,7 +250,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Discharged from Hospital} = 'Yes' and {Treated for COVID19} = 'Yes'",
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Discharged from Hospital} = 'Yes'",
             "readOnly": true
         },
         {
