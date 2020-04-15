@@ -16,8 +16,8 @@ var json = {
                     "type": "html",
                     "name": "Intro",
                     "html": {
-                        "default": "<P>This self-assessment form suggests further steps depending on your level of risk of exposure to COVID-19 (Novel Coronavirus). You can complete this form for yourself or others who are not able.</P>\n<p><i><sup>Privacy Statement: This tool does not collect, store or distribute any user sensitive information.</sup></i></p><p><sup><a id=\"toggleLanguageElement\" href=\"#\">हिंदी के लिए <a/></sup></p>",
-                        "es": "<P>यह स्व-निर्धारण प्रपत्र COVID-19 (नोवेल कोरोनावायरस) संक्रमण के जोखिम के आपके स्तर के आधार पर आगे के चरणों का सुझाव देता है। आप इस प्रपत्र को अपने या अन्य लोगों के लिए पूरा कर सकते हैं जो सक्षम नहीं हैं।</P>\n<p><i><sup>गोपनीयता कथन: यह उपकरण किसी भी उपयोगकर्ता की संवेदनशील जानकारी को संग्रहीत या वितरित नहीं करता है।<sup></i></p>\n<p>\n<sup><a id=\"toggleLanguageElement\" href=\"#\">For English</a><sup></p>"
+                        "default": "<P>This self-assessment form suggests further steps depending on your level of risk of exposure to COVID-19 (Novel Coronavirus). You can complete this form for yourself or others who are not able.</P>\n<p><i><sup>Privacy Statement: This tool does not collect, store or distribute any sensitive information without user consent.</sup></i></p><p><sup><a id=\"toggleLanguageElement\" href=\"#\">हिंदी के लिए <a/></sup></p>",
+                        "es": "<P>यह स्व-निर्धारण प्रपत्र COVID-19 (नोवेल कोरोनावायरस) संक्रमण के जोखिम के आपके स्तर के आधार पर आगे के चरणों का सुझाव देता है। आप इस प्रपत्र को अपने या अन्य लोगों के लिए पूरा कर सकते हैं जो सक्षम नहीं हैं।</P>\n<p><i><sup>गोपनीयता विवरण: यह उपकरण उपयोगकर्ता की सहमति के बिना किसी भी संवेदनशील जानकारी को इकट्ठा, संग्रहीत या वितरित नहीं करता है।<sup></i></p>\n<p>\n<sup><a id=\"toggleLanguageElement\" href=\"#\">For English</a><sup></p>"
                     }
                 }
             ],
