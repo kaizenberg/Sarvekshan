@@ -43,9 +43,9 @@ List of open source tools & libraries.
 - [QR Code Generator](https://github.com/lifthrasiir/qr.js)
 - [QR Code Scanner](https://github.com/robinsonmax/QR-Code-Scanner)
 - [TOTP Generator](https://github.com/jiangts/JS-OTP)
-- [WebRTC PeerJs](https://github.com/peers/peerjs)
-- [Device Fingerprinting ClientJs](https://github.com/jackspirou/clientjs)
-- [Local Forage](hhttps://github.com/localForage/localForage)
+- [WebRTC Peers](https://github.com/peers/peerjs)
+- [Device Fingerprinting](https://github.com/jackspirou/clientjs)
+- [Browser Storage](https://github.com/localForage/localForage)
 - [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 - [Penetration Testing/Vulnerability Scanner](https://observatory.mozilla.org/)
 
