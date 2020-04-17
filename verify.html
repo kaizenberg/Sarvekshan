@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="assets/css/vendor/all.min.css">
     <script type="text/javascript" src="assets/js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
-    <script type=" text/javascript" src="assets/js/vendor/jsQR.js"></script>
+    <script type=" text/javascript" src="assets/js/vendor/jsqrscanner.nocache.js"></script>
     <script type=" text/javascript" src="assets/js/vendor/peerjs.min.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded">
         <a class="navbar-brand" href="index.html">
-            <img src="favicon.ico" alt="" height="30px" width="30px" />
+            <img src="favicon.ico" alt="Sarvekshan" height="30px" width="30px" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,48 +50,28 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <br>
-        <div class="card">
-            <div id="cameraFrame" class="card-body">
-                <div class="row">
-                    <div class="col-sm-auto">
-                        <main id="camera">
-                            <!-- Camera sensor -->
-                            <canvas></canvas>
-                            <!-- Camera view -->
-                            <video autoplay playsinline></video>
-                            <!-- Camera output (need for image processing) -->
-                            <img src="//:0" alt="Camera preview" />
-                            <span id="statusMsg" class="card-text card-text-light"></span>
-                        </main>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow rounded">
+                    <div class="card-body bg-danger">
+                        <div class="qrscanner" id="scanner">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="btn-group-lg" role="group" aria-label="Basic example">
-                    <button id="startScanning" type="button" class="btn btn-secondary">Start</button>
-                    <button id="stopScanning" type="button" class="btn btn-secondary">Stop</button>
-                </div>
-            </div>
-            <!-- Modal HTML -->
-            <div id="modalCenter" class="modal fade" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Scanned Data</h6>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="col">
+                <div class="card shadow rounded h-100">
+                    <div class="card-header">
+                        <h5 class="card-title">ePass Verification</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="scannedData">
                         </div>
-                        <div class="modal-body">
-                            <div id="scannedData">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="btn-group-lg" role="group" aria-label="Basic example">
-                                <button id="eVerify" type="button" class="btn btn-secondary">eVerify</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="eVerify" type="button" class="btn btn-primary">eVerify</button>
                     </div>
                 </div>
             </div>

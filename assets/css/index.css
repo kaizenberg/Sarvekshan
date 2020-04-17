@@ -1,11 +1,11 @@
 .card-hover-main:hover {
-    background-color: teal !important;
+    background-color: lightblue !important;
     transition: 0.5s;
 }
 
 .card-hover-pass:hover {
-    background-color: lightgray !important;
-    transition: 0.2s;
+    background-color: lightblue !important;
+    transition: 0.5s;
     cursor: pointer;
 }
 
