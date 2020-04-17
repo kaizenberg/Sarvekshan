@@ -1,115 +1,48 @@
-Survey
-    .StylesManager
-    .applyTheme("modern");
+localforage.keys().then(function (keys) {
+    keys.forEach(function (key) {
+        $('#savedPassesList').append(
+            `<div>
+                <div id="card:${key}" class="card bg-light text-dark shadow rounded card-hover-pass">
+                    <div class="card-body">
+                        <i>${key}</i>
+                        <button type="button" class="close" aria-label="Close">
+                            <span id="btn:${key}" class="deleteButton" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <br/>
+            </div>`);
+    });
+}).catch(function (err) {
+    console.log(err);
+});
 
-window.survey = new Survey.Model(json);
+$(document).on("click", ".deleteButton", function (event) {
+    removePass(event.target);
+});
 
-$("#surveyElement").Survey({ model: survey });
-
-var lati, longi;
-
-function launchWhatsAppElement() {
-    var appendUrl = "*" + survey.title + "*{#}{#}";
-    survey.getAllQuestions().map(function (q) {
-        if (q.isParentVisible && !q.parent.readOnly) {
-            if (q.html !== undefined) {
-                appendUrl += "Question: ";
-                appendUrl += $('<div></div>').html(q.html.replace('</', '{#}</')).text() + "{#}"
-            }
-            if (q.isAnswered) {
-                appendUrl += "Answer: *" + $('<div</div>').html(q.displayValue).text() + "*{#}{#}";
-            }
+$(document).on("click", ".card-hover-pass", function (event) {
+    var key = event.currentTarget.id.split(':')[1];
+    localforage.getItem(key, function (err, value) {
+        if (err) {
+            console.log(err);
+            return;
         }
-    })
-    appendUrl = encodeURIComponent(appendUrl);
-    appendUrl = appendUrl.replace(/%7B%23%7D/g, '%0A');
-    window.open('https://wa.me/919013151515?text=' + appendUrl);
-};
+        $('#ePassKey').text(key);
+        $('#qrCodeView').attr('src', value);
+        $('#savedQrCodeModal').modal('show');
+        console.log(key + " : retrieved from local db");
+    });
+});
 
-// Will refactor this logic later
-function toggleLanguage() {
-    survey.locale = survey.locale === 'es' ? 'en' : 'es';
-    survey.clear();
-    survey.render();
-    activateHyperlinks();
-}
-
-function findTestingCenters() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(openICMRWebsite);
-    } else {
-        alert("Your location is not known or maps aren't working");
+function removePass(element) {
+    if (window.confirm("Do you really want to delete this ePass?")) {
+        var key = element.id.split(':')[1];
+        $(element).parent().parent().parent().parent().remove();
+        localforage.removeItem().then(function () {
+            console.log(key + ' is deleted from local db!');
+        }).catch(function (err) {
+            console.log(err);
+        });
     }
 }
-
-function openICMRWebsite(position) {
-    lati = position.coords.latitude;
-    longi = position.coords.longitude;
-    window.open(`https://covid.icmr.org.in/index.php#${lati}/${longi}/12`);
-}
-
-function generateQrCode(colorCode, riskLevel) {
-    var clone = JSON.parse(JSON.stringify(survey.data));
-    var today = new Date();
-    clone["Risk Level"] = riskLevel;
-    clone["Created On"] = today;
-    clone["Device ID"] = new ClientJS().getFingerprint(); // Auto-generated Device ID
-    clone["Unique ID"] = UUID.generate(); // Unique ID issued by government
-
-    var qrOptions = {
-        ecclevel: 'M',
-        fgColor: colorCode,
-        bgColor: 'white',
-        margin: 0
-    };
-
-    var imgData = QRCode.generatePNG(JSON.stringify(clone), qrOptions);
-
-    $('#qrCodePlaceholder').append("<img src='" + imgData + "' height='200px' width='200px'/>");
-    $('#qrCodePlaceholder').attr('href', imgData);
-    $('#qrCodePlaceholder').attr('download', today.getDate() + '-' + today.getMonth() + '-' + today.getFullYear() + '.png');
-}
-
-
-function animate(animitionType, duration) {
-    if (!duration)
-        duration = 1000;
-    var element = document.getElementById("surveyElement");
-    $(element).velocity(animitionType, { duration: duration });
-    activateHyperlinks();
-}
-
-function activateHyperlinks() {
-    var ele1 = document.getElementById("findTestingCentersElement");
-    if (ele1)
-        ele1.onclick = findTestingCenters;
-
-    var ele2 = document.getElementById("launchWhatsAppElement");
-    if (ele2)
-        ele2.onclick = launchWhatsAppElement;
-
-    var ele3 = document.getElementById("toggleLanguageElement");
-    if (ele3)
-        ele3.onclick = toggleLanguage;
-}
-
-var doAnimantion = true;
-survey
-    .onCurrentPageChanging
-    .add(function (sender, options) {
-        if (!doAnimantion)
-            return;
-        options.allowChanging = false;
-        setTimeout(function () {
-            doAnimantion = false;
-            sender.currentPage = options.newCurrentPage;
-            doAnimantion = true;
-        }, 500);
-        animate("fadeOut", 500);
-    });
-survey
-    .onCurrentPageChanged
-    .add(function (sender) {
-        animate("fadeIn", 500);
-    });
-animate("fadeIn", 1000);

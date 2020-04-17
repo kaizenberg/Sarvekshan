@@ -23,23 +23,18 @@
 
     <!--App Assets-->
     <link type="text/css" rel="stylesheet" href="assets/css/index.css" />
-    <script type="text/javascript" src="assets/js/survey.js"></script>
 
-    <!--3rd Party Assets-->
-    <link type="text/css" rel="stylesheet" href="assets/css/vendor/modern.css" />
+    <!--Vendor Assets-->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/all.min.css">
     <script type="text/javascript" src="assets/js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/vendor/survey.jquery.js"></script>
-    <script type="text/javascript" src="assets/js/vendor/velocity.min.js"></script>
-    <script type="text/javascript" src="assets/js/vendor/client.min.js"></script>
-    <script type="text/javascript" src="assets/js/vendor/uuid.js"></script>
-    <script type="text/javascript" src="assets/js/vendor/qr.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/all.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/localforage.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded">
         <a class="navbar-brand" href="index.html">
             <img src="favicon.ico" alt="" height="30px" width="30px" />
         </a>
@@ -49,13 +44,68 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="index.html">Survey<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="scan.html">Verify</a>
+                <a class="nav-item nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="generate.html">Generate</a>
+                <a class="nav-item nav-link" href="verify.html">Verify</a>
             </div>
         </div>
     </nav>
-    <!--Survey Widget-->
-    <div id="surveyElement"></div>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="generate.html" class="custom-card">
+                    <div id="generateCard" class="card bg-info text-white shadow rounded card-hover-main">
+                        <div class="card-body text-center ">
+                            <i class="fas fa-id-badge fa-10x"></i>
+                            <h5 class="card-text">Generate ePass</h5>
+                        </div>
+                    </div>
+                </a>
+                <br>
+            </div>
+            <div class="col">
+                <a href="verify.html" class="custom-card">
+                    <div id="verifyCard" class="card bg-info text-white shadow rounded card-hover-main">
+                        <div class="card-body text-center">
+                            <i class="fas fa-qrcode fa-10x"></i>
+                            <h5 class="card-text">Verify ePass</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title font-weight-light">Saved Passes:</p>
+                <div id="savedPassesList"></div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="savedQrCodeModal" tabindex="-1" role="dialog"
+            aria-labelledby="savedQrCodeModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 id="ePassKey" class="modal-title"></h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="qrCodeView" class="img-fluid"></img>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--App Assets-->
     <script type="text/javascript" src="assets/js/index.js"></script>
 </body>

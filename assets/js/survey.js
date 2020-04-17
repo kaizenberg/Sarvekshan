@@ -24,44 +24,6 @@ var json = {
             "readOnly": true
         },
         {
-            "name": "Hospitalization",
-            "elements": [
-                {
-                    "type": "html",
-                    "name": "HQ1",
-                    "html": {
-                        "default": "<p>Have you received any treatment in any  hospital in the past 7 days?</p>",
-                        "es": "<p>क्या आपने पिछले 7 दिनों में किसी भी अस्पताल में कोई उपचार प्राप्त किया है?</p>"
-                    }
-                },
-                {
-                    "type": "radiogroup",
-                    "name": "Discharged from Hospital",
-                    "isRequired": true,
-                    "requiredErrorText": {
-                        "es": "एक विकल्प चुनें"
-                    },
-                    "titleLocation": "hidden",
-                    "choices": [
-                        {
-                            "value": "Yes",
-                            "text": {
-                                "default": "Yes",
-                                "es": "हाँ"
-                            }
-                        },
-                        {
-                            "value": "No",
-                            "text": {
-                                "default": "No",
-                                "es": "नहीं"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Page 1",
             "elements": [
                 {
@@ -97,9 +59,7 @@ var json = {
                         }
                     ]
                 }
-            ],
-            "visible": false,
-            "visibleIf": "{Discharged from Hospital} = 'No'"
+            ]
         },
         {
             "name": "Page 2",
@@ -222,6 +182,46 @@ var json = {
             "visibleIf": "{Severe Respiratory Condition} = 'No'"
         },
         {
+            "name": "Page 5",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "HQ1",
+                    "html": {
+                        "default": "<p>Had you been hospitalized in the past 15 days?</p>",
+                        "es": "<p>क्या आप पिछले 15 दिनों में अस्पताल में भर्ती थे?</p>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Discharged from Hospital",
+                    "isRequired": true,
+                    "requiredErrorText": {
+                        "es": "एक विकल्प चुनें"
+                    },
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "text": {
+                                "default": "Yes",
+                                "es": "हाँ"
+                            }
+                        },
+                        {
+                            "value": "No",
+                            "text": {
+                                "default": "No",
+                                "es": "नहीं"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "visible": false,
+            "visibleIf": "{Severe Respiratory Condition} = 'No'"
+        },
+        {
             "name": "Low Risk",
             "elements": [
                 {
@@ -234,7 +234,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No'",
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' and {Discharged from Hospital} = 'No'",
             "readOnly": true
         },
         {
@@ -250,7 +250,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Discharged from Hospital} = 'Yes'",
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Discharged from Hospital} = 'Yes' and {Close Contact With Infected} = 'No' and {Flu Symptoms} = 'No' and {Severe Respiratory Condition} = 'No' and {Traveled OR Attended Social Event} = 'No' or {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Discharged from Hospital} = 'No' and {Severe Respiratory Condition} = 'No' and {Traveled OR Attended Social Event} = 'No'",
             "readOnly": true
         },
         {
@@ -266,7 +266,7 @@ var json = {
                 }
             ],
             "visible": false,
-            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'Yes'",
+            "visibleIf": "{Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'No' and {Close Contact With Infected} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'No' and {Traveled OR Attended Social Event} = 'Yes' or {Severe Respiratory Condition} = 'No' and {Flu Symptoms} = 'Yes' and {Close Contact With Infected} = 'Yes' or {Flu Symptoms} = 'Yes' and {Discharged from Hospital} = 'Yes' and {Close Contact With Infected} = 'No' and {Severe Respiratory Condition} = 'No' and {Traveled OR Attended Social Event} = 'No'",
             "readOnly": true
         },
         {

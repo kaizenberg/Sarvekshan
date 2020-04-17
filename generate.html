@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Generate ePass</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:site_name" content="Sarveksan">
+    <meta property="og:title" content="Sarvekshan" />
+    <meta property="og:description" content="COVID-19 Anonymous Self-Screening & Verification Tool" />
+    <meta property="og:image" content="https://kaizenberg.github.io/Sarvekshan/assets/img/banner.png">
+    <meta property="og:type" content="website" />
+    <!--<meta property="og:updated_time" content="1440432930" />-->
+
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="form-action 'self'">
+
+    <!--App Assets-->
+    <link type="text/css" rel="stylesheet" href="assets/css/generate.css" />
+    <script type="text/javascript" src="assets/js/survey.js"></script>
+
+    <!--Vendor Assets-->
+    <link type="text/css" rel="stylesheet" href="assets/css/vendor/modern.css" />
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/all.min.css">
+    <script type="text/javascript" src="assets/js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/all.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/survey.jquery.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/velocity.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/client.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/uuid.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/qr.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/localforage.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded">
+        <a class="navbar-brand" href="index.html">
+            <img src="favicon.ico" alt="" height="30px" width="30px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="index.html">Home</a>
+                <a class="nav-item nav-link active" href="generate.html">Generate<span
+                        class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="verify.html">Verify</a>
+            </div>
+        </div>
+    </nav>
+
+    <br />
+    <!--Survey Widget-->
+    <div id="surveyElement"></div>
+
+    <!--App Assets-->
+    <script type="text/javascript" src="assets/js/generate.js"></script>
+</body>
+
+</html>
