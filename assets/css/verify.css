@@ -1,9 +1,8 @@
+.card-body {
+    padding: 0px !important;
+}
+
 video {
     height: 100%;
     width: 100%;
-}
-
-.card-body {
-    background-color: black !important;
-    padding: 5px !important;
 }

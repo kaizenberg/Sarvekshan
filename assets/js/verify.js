@@ -1,16 +1,18 @@
-$('#scannedDataModel').on('shown.bs.modal', function () {
+$('#scannedDataModel').on('hidden.bs.modal', function () {
     $("#scannedData").html("");
+    $('.qrPreviewVideo')[0].play();
 })
 
 function onQRCodeScanned(scannedText) {
-    var html = "";
     try {
+        var html = "";
         jQuery.each(JSON.parse(scannedText), function (name, val) {
-            if (name === "Device ID") remoteDeviceId = val;
+            if (name === "Device Id") remoteDeviceId = val;
             html += "<div>" + name + ": " + val + "</div>";
         });
         $("#scannedData").append(html);
         $('#scannedDataModel').modal('show');
+        $('.qrPreviewVideo')[0].pause();
     }
     catch (ex) {
         console.log("Scanned data is erroneous", ex);
@@ -76,14 +78,14 @@ function JsQRScannerReady() {
 //--------------eVerification Logic----------------
 
 let remoteDeviceId;
-var lastPeerId = null;
+var lastPeerId = new ClientJS().getFingerprint();
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
 
 function initialize() {
     // Create own peer object with connection to shared PeerJS server
-    peer = new Peer(null, {
+    peer = new Peer(String(lastPeerId), {
         debug: 2
     });
 
