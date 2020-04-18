@@ -36,7 +36,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded">
         <a class="navbar-brand" href="index.html">
-            <img src="favicon.ico" alt="Sarvekshan" height="30px" width="30px" />
+            <img src="favicon.ico" alt="Sarvekshan" height="40px" width="40px" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,63 +53,90 @@
     <br />
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-4">
                 <a href="generate.html" class="custom-card">
                     <div id="generateCard" class="card bg-primary text-white shadow rounded card-hover-main">
-                        <div class="card-body text-center ">
-                            <i class="fa fa-qrcode fa-10x"></i>
-                            <h5 class="card-text">Generate ePass</h5>
+                        <div class="card-body text-center">
+                            <i class="fa fa-user-md fa-10x"></i>
+                            <h5 class="card-text text-nowrap">Self-Assess</h5>
                         </div>
                     </div>
                 </a>
-                <br>
             </div>
-            <div class="col">
+            <div class="col-4">
+                <div id="uploadCard" class="card bg-success text-white shadow rounded card-hover-main">
+                    <div class="card-body text-center">
+                        <i class="fa fa-qrcode fa-10x" aria-hidden="true"></i>
+                        <h5 class="card-text text-nowrap">Upload ePass</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
                 <a href="verify.html" class="custom-card">
                     <div id="verifyCard" class="card bg-danger text-white shadow rounded card-hover-main">
                         <div class="card-body text-center">
-                            <i class="fa fa-search fa-10x"></i>
-                            <h5 class="card-text">Verify ePass</h5>
+                            <i class="fa fa-unlock-alt fa-10x"></i>
+                            <h5 class="card-text text-nowrap">Verify ePass</h5>
                         </div>
                     </div>
                 </a>
             </div>
+        </div>
+        <div class="row" style="padding-top: 40px;">
             <div class="col">
-                <blockquote class="blockquote">
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
-                        ante.</p>
-                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-                    </footer>
-                </blockquote>
+                <div class="badge badge-warning groupLabel">Saved Passes
+                </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="padding-top: 20px;">
             <div class="col">
-                <blockquote class="blockquote">
-                    <p class="mb-0">Saved Passes</p>
-                </blockquote>
                 <div id="savedPassesList"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal -->
-
-        <div class="modal fade" id="savedQrCodeModal" tabindex="-1" role="dialog"
-            aria-labelledby="savedQrCodeModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 id="ePassKey" class="modal-title"></h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body text-center">
+    <!-- Modal -->
+    <div class="modal fade" id="savedQrCodeModal" tabindex="-1" role="dialog" aria-labelledby="savedQrCodeModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 id="ePassKey" class="modal-title"></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <a id="qrCodeViewLink" download>
                         <img id="qrCodeView" class="img-fluid"></img>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="uploadQrCodeModal" tabindex="-1" role="dialog" aria-labelledby="uploadQrCodeModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Upload ePass</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form id="fileUploadForm">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" multiple>
+                            <label class="custom-file-label text-left" for="customFile">Choose file</label>
+                        </div>
+                        <div class="card-text text-center">
+                            <i><small>Overwrites existing file if the names match</small></i>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

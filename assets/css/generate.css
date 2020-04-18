@@ -2,6 +2,11 @@
     padding-top: 2% !important;
 }
 
+.navbar-brand{
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+}
+
 .sv-logo--left {
     margin-right: 0px !important;
 }

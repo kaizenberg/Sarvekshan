@@ -1,6 +1,11 @@
 .card-hover-main:hover {
-    background-color: lightblue !important;
+    background-color: orange !important;
     transition: 0.5s;
+}
+
+.navbar-brand {
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
 }
 
 .card-hover-pass:hover {
@@ -13,4 +18,39 @@ a.custom-card,
 a.custom-card:hover {
     color: inherit;
     text-decoration-line: none;
+}
+
+.groupLabel {
+    margin-left: 10px;
+}
+
+.uploadButton {
+    margin-right: 20px;
+}
+
+.downloadButton {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .col-4 {
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card-text {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .groupLabel {
+        margin-top: 20px;
+        font-size: 3vw !important;
+    }
+
+    .col {
+        font-size: 3.5vw;
+    }
 }

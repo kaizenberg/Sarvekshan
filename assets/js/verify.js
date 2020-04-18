@@ -1,18 +1,16 @@
-let currentUserId;
-var lastPeerId = null;
-var peer = null; // Own peer object
-var peerId = null;
-var conn = null;
+$('#scannedDataModel').on('shown.bs.modal', function () {
+    $("#scannedData").html("");
+})
 
 function onQRCodeScanned(scannedText) {
-    $("#scannedData").html("");
     var html = "";
     try {
         jQuery.each(JSON.parse(scannedText), function (name, val) {
-            if (name === "Device ID") currentUserId = val;
+            if (name === "Device ID") remoteDeviceId = val;
             html += "<div>" + name + ": " + val + "</div>";
         });
         $("#scannedData").append(html);
+        $('#scannedDataModel').modal('show');
     }
     catch (ex) {
         console.log("Scanned data is erroneous", ex);
@@ -74,79 +72,20 @@ function JsQRScannerReady() {
     }
 }
 
-document.getElementById('eVerify').addEventListener('click', function () {
-    if (currentUserId === null) return;
 
-    function join() {
-        // Close old connection
-        if (conn) {
-            conn.close();
-        }
+//--------------eVerification Logic----------------
 
-        // Create connection to destination peer specified in the input field
-        conn = peer.connect(recvIdInput.value, {
-            reliable: true
-        });
+let remoteDeviceId;
+var lastPeerId = null;
+var peer = null; // Own peer object
+var peerId = null;
+var conn = null;
 
-        conn.on('open', function () {
-            status.innerHTML = "Connected to: " + conn.peer;
-            console.log("Connected to: " + conn.peer);
-
-            // Check URL params for comamnds that should be sent immediately
-            var command = getUrlParam("command");
-            if (command)
-                conn.send(command);
-        });
-        // Handle incoming data (messages only since this is the signal sender)
-        conn.on('data', function (data) {
-            addMessage("<span class=\"peerMsg\">Peer:</span> " + data);
-        });
-        conn.on('close', function () {
-            status.innerHTML = "Connection closed";
-        });
-    };
-
-    /**
-     * Get first "GET style" parameter from href.
-     * This enables delivering an initial command upon page load.
-     *
-     * Would have been easier to use location.hash.
-     */
-    function getUrlParam(name) {
-        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-        var regexS = "[\\?&]" + name + "=([^&#]*)";
-        var regex = new RegExp(regexS);
-        var results = regex.exec(window.location.href);
-        if (results == null)
-            return null;
-        else
-            return results[1];
-    };
-
-    //Generate TOTP
-    var totp = new jsOTP.totp();
-    var timeCode = totp.getOtp(60, 8);
-    console.log(timeCode);
-    console.log(totp.getOtp(60, 8));
-
-    //Open WebRTC Connection
-    var peer = new Peer();
-    var conn = peer.connect(currentUserId);
-
-    conn.on('open', function () {
-        // here you have conn.id
-        conn.send(timeCode);
-    });
-
-    peer.on('connection', function (conn) {
-        conn.on('data', function (data) {
-            conn.close();
-            totp.timeCode(60, 8) === data;
-        });
-    });
-
+function initialize() {
     // Create own peer object with connection to shared PeerJS server
-    peer = new Peer(myUniqueId);
+    peer = new Peer(null, {
+        debug: 2
+    });
 
     peer.on('open', function (id) {
         // Workaround for peer.reconnect deleting previous id
@@ -157,25 +96,11 @@ document.getElementById('eVerify').addEventListener('click', function () {
             lastPeerId = peer.id;
         }
 
-        console.log('ID: ' + peer.id);
-    });
-
-    peer.on('connection', function (c) {
-        // Allow only a single connection
-        if (conn) {
-            c.on('open', function () {
-                c.send("Already connected to another client");
-                setTimeout(function () { c.close(); }, 500);
-            });
-            return;
-        }
-
-        conn = c;
-        console.log("Connected to: " + conn.peer);
-        ready();
+        console.log('Your Device ID: ' + peer.id);
     });
 
     peer.on('disconnected', function () {
+        $('#verificationMsg').text("Connection problem. Please retry.");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -186,11 +111,65 @@ document.getElementById('eVerify').addEventListener('click', function () {
 
     peer.on('close', function () {
         conn = null;
+        $('#verificationMsg').text("Connection destroyed. Please refresh");
         console.log('Connection destroyed');
     });
 
     peer.on('error', function (err) {
         console.log(err);
-        alert('' + err);
+        $('#verificationMsg').text("Error occured. Refresh the page.");
     });
+}
+
+function verify(remoteAddress) {
+    // Close old connection
+    if (conn) {
+        conn.close();
+    }
+
+    // Create connection to destination peer specified in the input field
+    conn = peer.connect(remoteAddress, {
+        reliable: true
+    });
+
+    conn.on('open', function () {
+        status.innerHTML = "Connected to: " + conn.peer;
+        console.log("Connected to: " + conn.peer);
+
+        //Generate TOTP
+        var totp = new jsOTP.totp();
+        var timeCode = totp.getOtp(60, 8);
+        console.log(timeCode);
+        conn.send(timeCode);
+    });
+
+    // Handle incoming data (messages only since this is the signal sender)
+    conn.on('data', function (data) {
+        if (totp.timeCode(60, 8) === data)
+            alert("Valid ePass");
+        else
+            alert("Invalid ePass!");
+        conn.close();
+    });
+
+    conn.on('close', function () {
+        status.innerHTML = "Connection closed";
+    });
+};
+
+function getUrlParam(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results == null)
+        return null;
+    else
+        return results[1];
+};
+
+$('#eVerify').click(function () {
+    if (remoteDeviceId === null) return;
+    initialize();
+    verify(remoteDeviceId);
 });

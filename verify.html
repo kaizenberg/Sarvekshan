@@ -36,7 +36,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded">
         <a class="navbar-brand" href="index.html">
-            <img src="favicon.ico" alt="Sarvekshan" height="30px" width="30px" />
+            <img src="favicon.ico" alt="Sarvekshan" height="40px" width="40px" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,27 +51,31 @@
         </div>
     </nav>
     <br />
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card shadow rounded">
-                    <div class="card-body bg-danger">
-                        <div class="qrscanner" id="scanner">
-                        </div>
-                    </div>
-                </div>
+    <div class="container-fluid">
+        <div class="card shadow rounded">
+            <div class="card-body">
+                <div class="qrscanner" id="scanner"> </div>
             </div>
-            <div class="col">
-                <div class="card shadow rounded h-100">
-                    <div class="card-header">
-                        <h5 class="card-title">ePass Verification</h5>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="scannedDataModel" tabindex="-1" role="dialog"
+            aria-labelledby="scannedDataModelTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">ePass Verification</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="card-body">
+                    <div class="modal-body">
                         <div id="scannedData">
                         </div>
                     </div>
-                    <div class="card-footer">
+                    <div class="modal-footer">
                         <button id="eVerify" type="button" class="btn btn-primary">eVerify</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div id="verificationMsg"></div>
                     </div>
                 </div>
             </div>
