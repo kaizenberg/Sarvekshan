@@ -114,7 +114,7 @@ var conn = null;
 function initialize() {
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(String(lastPeerId), {
-        debug: 2
+        debug: 3
     });
 
     peer.on('open', function (id) {
@@ -141,13 +141,13 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
-        $('#statusMsg').text("ePass verification request received. Don't close the window.");
+        $('#statusMsg').text("ePass verification request received.");
 
         ready();
     });
 
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Verification problem. Retrying...");
+        $('#statusMsg').text("Connection problem. Retrying...");
         console.log('Connection lost. Reconnecting...');
 
         // Workaround for peer.reconnect deleting previous id

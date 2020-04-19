@@ -3,8 +3,12 @@ $('#scannedDataModel').on('hidden.bs.modal', function () {
     $('.qrPreviewVideo')[0].play();
 })
 
+var currentScannedText = "";
+
 function onQRCodeScanned(scannedText) {
     try {
+        if (currentScannedText === scannedText) return;
+        $('.qrPreviewVideo')[0].pause();
         var html = "";
         jQuery.each(JSON.parse(scannedText), function (name, val) {
             if (name === "Device Id") remoteDeviceId = val;
@@ -12,7 +16,6 @@ function onQRCodeScanned(scannedText) {
         });
         $("#scannedData").append(html);
         $('#scannedDataModel').modal('show');
-        $('.qrPreviewVideo')[0].pause();
     }
     catch (ex) {
         console.log("Scanned data is erroneous", ex);
@@ -86,7 +89,7 @@ var conn = null;
 function initialize() {
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(String(lastPeerId), {
-        debug: 2
+        debug: 3
     });
 
     peer.on('open', function (id) {
@@ -99,11 +102,11 @@ function initialize() {
         }
 
         console.log('Your Id: ' + peer.id);
-        $('#statusMsg').text("Ready for ePass verification!");
+        $('#statusMsg').text("Start ePass verification!");
     });
 
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Vertification problem. Retrying...");
+        $('#statusMsg').text("Connection problem. Retrying...");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -143,7 +146,7 @@ function verify(remoteAddress) {
         var timeCode = totp.getOtp(60, 8);
         console.log(timeCode);
         conn.send(timeCode);
-        $('#statusMsg').text("ePass verification request sent. Don't close the window.");
+        $('#statusMsg').text("ePass verification request sent.");
     });
 
     // Handle incoming data (messages only since this is the signal sender)
@@ -160,21 +163,10 @@ function verify(remoteAddress) {
     });
 };
 
-function getUrlParam(name) {
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regexS = "[\\?&]" + name + "=([^&#]*)";
-    var regex = new RegExp(regexS);
-    var results = regex.exec(window.location.href);
-    if (results == null)
-        return null;
-    else
-        return results[1];
-};
+$('#statusMsg').text("Initializing...");
+initialize();
 
 $('#eVerify').click(function () {
     if (remoteDeviceId === null) return;
-
-    $('#statusMsg').text("Initializing...");
-    initialize();
     verify(remoteDeviceId);
 });
