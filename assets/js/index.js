@@ -101,7 +101,7 @@ function removePass(element) {
 
 $('#savedQrCodeModal').on('shown.bs.modal', function () {
     initialize();
-    $('#statusMsg').text("Going online...");
+    $('#statusMsg').text("Initializing...");
 })
 
 //---------------Peering---------------

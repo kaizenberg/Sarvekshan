@@ -99,6 +99,7 @@ function initialize() {
         }
 
         console.log('Your Id: ' + peer.id);
+        $('#statusMsg').text("Ready for ePass verification!");
     });
 
     peer.on('disconnected', function () {
@@ -173,7 +174,7 @@ function getUrlParam(name) {
 $('#eVerify').click(function () {
     if (remoteDeviceId === null) return;
 
-    $('#statusMsg').text("ePass verification starting...");
+    $('#statusMsg').text("Initializing...");
     initialize();
     verify(remoteDeviceId);
 });
