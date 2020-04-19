@@ -102,7 +102,7 @@ function initialize() {
     });
 
     peer.on('disconnected', function () {
-        $('#verificationMsg').text("Connection problem. Please retry.");
+        $('#statusMsg').text("Connection problem. Please retry.");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -113,13 +113,13 @@ function initialize() {
 
     peer.on('close', function () {
         conn = null;
-        $('#verificationMsg').text("Connection destroyed. Please refresh");
+        $('#statusMsg').text("Connection destroyed. Please refresh");
         console.log('Connection destroyed');
     });
 
     peer.on('error', function (err) {
         console.log(err);
-        $('#verificationMsg').text("Error occured. Refresh the page.");
+        $('#statusMsg').text("Error occured. Refresh the page.");
     });
 }
 
@@ -135,7 +135,7 @@ function verify(remoteAddress) {
     });
 
     conn.on('open', function () {
-        status.innerHTML = "Connected to: " + conn.peer;
+        $('#statusMsg').text("Connected to: " + conn.peer);
         console.log("Connected to: " + conn.peer);
 
         //Generate TOTP
@@ -155,7 +155,7 @@ function verify(remoteAddress) {
     });
 
     conn.on('close', function () {
-        status.innerHTML = "Connection closed";
+        $('#statusMsg').text("Connection closed");
     });
 };
 

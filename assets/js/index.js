@@ -98,3 +98,87 @@ function removePass(element) {
         });
     }
 }
+
+$('#savedQrCodeModal').on('shown.bs.modal', function () {
+    initialize();
+})
+
+//---------------Peering---------------
+
+var lastPeerId = new ClientJS().getFingerprint();
+var peer = null; // Own peer object
+var peerId = null;
+var conn = null;
+
+function initialize() {
+    // Create own peer object with connection to shared PeerJS server
+    peer = new Peer(String(lastPeerId), {
+        debug: 2
+    });
+
+    peer.on('open', function (id) {
+        // Workaround for peer.reconnect deleting previous id
+        if (peer.id === null) {
+            console.log('Received null id from peer open');
+            peer.id = lastPeerId;
+        } else {
+            lastPeerId = peer.id;
+        }
+        console.log('ID: ' + peer.id);
+    });
+
+    peer.on('connection', function (c) {
+        // Allow only a single connection
+        if (conn) {
+            c.on('open', function () {
+                c.send("BUSY");
+                setTimeout(function () { c.close(); }, 500);
+            });
+            return;
+        }
+
+        conn = c;
+        console.log("Connected to: " + conn.peer);
+        $('#statusMsg').text("Your ePass is being verified. Don't close the window.");
+
+        ready();
+    });
+
+    peer.on('disconnected', function () {
+        $('#statusMsg').text("Connection failed. Trying to reconnect.");
+        console.log('Connection lost. Please reconnect');
+
+        // Workaround for peer.reconnect deleting previous id
+        peer.id = lastPeerId;
+        peer._lastServerId = lastPeerId;
+        peer.reconnect();
+    });
+
+    peer.on('close', function () {
+        conn = null;
+        console.log('Connection destroyed');
+    });
+
+    peer.on('error', function (err) {
+        console.log(err);
+        $('#statusMsg').text("Error occured. Refresh the page.");
+    });
+}
+
+function ready() {
+    conn.on('data', function (data) {
+        console.log("Data recieved");
+        $('#statusMsg').text("Responding to request...");
+        if (conn && conn.open) {
+            conn.send(data);
+        } else {
+            console.log('Connection is closed');
+            $('#statusMsg').text("Done!");
+        }
+    });
+
+    conn.on('close', function () {
+        $('#statusMsg').text("Awaiting Connection...");
+        conn = null;
+    });
+}

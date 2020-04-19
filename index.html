@@ -31,6 +31,8 @@
     <script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/all.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/localforage.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/client.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/peerjs.min.js"></script>
 </head>
 
 <body>
@@ -109,6 +111,7 @@
                     </a>
                 </div>
                 <div class="modal-footer">
+                    <div id="statusMsg"></div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -131,7 +134,7 @@
                             <label class="custom-file-label text-left" for="customFile">Choose file</label>
                         </div>
                         <div class="card-text text-center">
-                            <i><small>Overwrites existing file if the names match</small></i>
+                            <i><small>Overwrites existing file if names match</small></i>
                         </div>
                     </form>
                 </div>
