@@ -97,7 +97,9 @@ function generateQrCode(colorCode, riskLevel) {
             margin: 2
         };
 
-        var imgData = QRCode.generatePNG(JSON.stringify(clone), qrOptions);
+        var compressed = LZString.compress(JSON.stringify(clone));
+
+        var imgData = QRCode.generatePNG(compressed, qrOptions);
 
         //Here should be the code to save the data into your database
         localforage.setItem(userId, imgData).then(function (value) {
