@@ -53,44 +53,41 @@
     <br />
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                <a href="generate.html" class="custom-card">
+            <div class="col">
+                <div class="card-deck">
                     <div id="generateCard" class="card bg-primary text-white shadow rounded card-hover-main">
                         <div class="card-body text-center">
-                            <i class="fa fa-user-md fa-10x"></i>
-                            <h5 class="card-text text-nowrap">Self-Assess</h5>
+                            <a href="generate.html" class="custom-card">
+                                <i class="fa fa-qrcode fa-10x"></i>
+                                <h5 class="card-text text-nowrap">Generate ePass</h5>
+                            </a>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-4">
-                <div id="uploadCard" class="card bg-success text-white shadow rounded card-hover-main">
-                    <div class="card-body text-center">
-                        <i class="fa fa-qrcode fa-10x" aria-hidden="true"></i>
-                        <h5 class="card-text text-nowrap">Upload ePass</h5>
+                    <div id="uploadCard" class="card bg-success text-white shadow rounded card-hover-main">
+                        <div class="card-body text-center">
+                            <i class="fa fa-upload fa-10x" aria-hidden="true"></i>
+                            <h5 class="card-text text-nowrap">Upload ePass</h5>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <a href="verify.html" class="custom-card">
                     <div id="verifyCard" class="card bg-danger text-white shadow rounded card-hover-main">
                         <div class="card-body text-center">
-                            <i class="fa fa-unlock-alt fa-10x"></i>
-                            <h5 class="card-text text-nowrap">Verify ePass</h5>
+                            <a href="verify.html" class="custom-card">
+                                <i class="fa fa-unlock-alt fa-10x"></i>
+                                <h5 class="card-text text-nowrap">Verify ePass</h5>
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
         <div class="row" style="padding-top: 40px;">
             <div class="col">
-                <div class="badge badge-warning groupLabel">Saved Passes
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Saved ePasses</h5>
+                        <div id="savedPassesList"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 20px;">
-            <div class="col">
-                <div id="savedPassesList" class="jumbotron"></div>
             </div>
         </div>
     </div>

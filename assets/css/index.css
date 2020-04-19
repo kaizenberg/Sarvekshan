@@ -1,5 +1,5 @@
 .card-hover-main:hover {
-    background-color: orange !important;
+    background-color: teal !important;
     transition: 0.5s;
 }
 
@@ -21,7 +21,7 @@ a.custom-card:hover {
 }
 
 .groupLabel {
-    margin-left: 10px;
+    background-color: orange;
 }
 
 .uploadButton {
@@ -30,27 +30,4 @@ a.custom-card:hover {
 
 .downloadButton {
     margin-right: 10px;
-}
-
-@media screen and (max-width: 800px) {
-    .col-4 {
-        font-size: 1.8vw;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .card-text {
-        font-size: 3vw;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .groupLabel {
-        margin-top: 20px;
-        font-size: 3vw !important;
-    }
-
-    .col {
-        font-size: 3.5vw;
-    }
 }

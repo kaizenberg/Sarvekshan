@@ -9,8 +9,8 @@ function loadSavedPasses() {
                     `<div>
                         <div id="card:${key}" class="card text-dark shadow-sm rounded card-hover-pass">
                             <div class="card-body">
-                                <i class="fa fa-download downloadButton" aria-hidden="true"></i>
-                                <i>${key}</i>
+                                <i class="fa fa-download text-info downloadButton" style="font-size: 1.2em" aria-hidden="true"></i>
+                                <span class="text-">${key}</span>
                                 <button type="button" class="close" aria-label="Close">
                                     <span id="btn:${key}" class="deleteButton" aria-hidden="true">&times;</span>
                                 </button>
