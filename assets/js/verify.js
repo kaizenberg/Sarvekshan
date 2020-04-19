@@ -8,6 +8,8 @@ var currentScannedText = "";
 function onQRCodeScanned(scannedText) {
     try {
         if (currentScannedText === scannedText) return;
+        currentScannedText = scannedText;
+        $("#scannedData").html("");
         $('.qrPreviewVideo')[0].pause();
         var html = "";
         jQuery.each(JSON.parse(scannedText), function (name, val) {
@@ -83,7 +85,6 @@ function JsQRScannerReady() {
 let remoteDeviceId;
 var lastPeerId = new ClientJS().getFingerprint();
 var peer = null; // Own peer object
-var peerId = null;
 var conn = null;
 
 function initialize() {
@@ -99,6 +100,11 @@ function initialize() {
             peer.id = lastPeerId;
         } else {
             lastPeerId = peer.id;
+        }
+
+        if (peer.id === null) {
+            $('#statusMsg').text("Error! Refresh the page!");
+            return;
         }
 
         console.log('Your Id: ' + peer.id);
@@ -146,12 +152,13 @@ function verify(remoteAddress) {
         var timeCode = totp.getOtp(60, 8);
         console.log(timeCode);
         conn.send(timeCode);
+
         $('#statusMsg').text("ePass verification request sent.");
     });
 
     // Handle incoming data (messages only since this is the signal sender)
     conn.on('data', function (data) {
-        if (totp.timeCode(60, 8) === data)
+        if (data === totp.timeCode(60, 8))
             alert("ePass verification succeeded!");
         else
             alert("ePass verfication failed!");
@@ -163,8 +170,10 @@ function verify(remoteAddress) {
     });
 };
 
-$('#statusMsg').text("Initializing...");
-initialize();
+$('#scannedDataModel').on('shown.bs.modal', function () {
+    $('#statusMsg').text("Initializing...");
+    initialize();
+})
 
 $('#eVerify').click(function () {
     if (remoteDeviceId === null) return;

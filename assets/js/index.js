@@ -108,7 +108,6 @@ $('#savedQrCodeModal').on('shown.bs.modal', function () {
 
 var lastPeerId = new ClientJS().getFingerprint();
 var peer = null; // Own peer object
-var peerId = null;
 var conn = null;
 
 function initialize() {
@@ -125,6 +124,12 @@ function initialize() {
         } else {
             lastPeerId = peer.id;
         }
+
+        if (peer.id === null) {
+            $('#statusMsg').text("Error! Refresh the page!");
+            return;
+        }
+
         console.log('Your Id: ' + peer.id);
         $('#statusMsg').text("Ready for ePass verification!");
     });
