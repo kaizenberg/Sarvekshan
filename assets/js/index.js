@@ -101,6 +101,7 @@ function removePass(element) {
 
 $('#savedQrCodeModal').on('shown.bs.modal', function () {
     initialize();
+    $('#statusMsg').text("Going online...");
 })
 
 //---------------Peering---------------
@@ -124,7 +125,8 @@ function initialize() {
         } else {
             lastPeerId = peer.id;
         }
-        console.log('ID: ' + peer.id);
+        console.log('Your Id: ' + peer.id);
+        $('#statusMsg').text("Ready for ePass verification!");
     });
 
     peer.on('connection', function (c) {
@@ -139,14 +141,14 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
-        $('#statusMsg').text("Your ePass is being verified. Don't close the window.");
+        $('#statusMsg').text("ePass verification request received. Don't close the window.");
 
         ready();
     });
 
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Connection failed. Trying to reconnect.");
-        console.log('Connection lost. Please reconnect');
+        $('#statusMsg').text("Verification problem. Retrying...");
+        console.log('Connection lost. Reconnecting...');
 
         // Workaround for peer.reconnect deleting previous id
         peer.id = lastPeerId;
@@ -156,29 +158,31 @@ function initialize() {
 
     peer.on('close', function () {
         conn = null;
-        console.log('Connection destroyed');
+        console.log('Connection closed');
+        $('#statusMsg').text("");
     });
 
     peer.on('error', function (err) {
         console.log(err);
-        $('#statusMsg').text("Error occured. Refresh the page.");
+        $('#statusMsg').text("Error! Refresh the page.");
     });
 }
 
 function ready() {
     conn.on('data', function (data) {
         console.log("Data recieved");
-        $('#statusMsg').text("Responding to request...");
+        $('#statusMsg').text("Verification started...");
         if (conn && conn.open) {
             conn.send(data);
+            $('#statusMsg').text("Verification completed!");
         } else {
-            console.log('Connection is closed');
-            $('#statusMsg').text("Done!");
+            console.log('Connection closed');
+            $('#statusMsg').text("Verification interrupted!");
         }
     });
 
     conn.on('close', function () {
-        $('#statusMsg').text("Awaiting Connection...");
+        $('#statusMsg').text("");
         conn = null;
     });
 }

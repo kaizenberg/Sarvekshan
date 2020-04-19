@@ -98,11 +98,11 @@ function initialize() {
             lastPeerId = peer.id;
         }
 
-        console.log('Your Device ID: ' + peer.id);
+        console.log('Your Id: ' + peer.id);
     });
 
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Connection problem. Please retry.");
+        $('#statusMsg').text("Vertification problem. Retrying...");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -113,13 +113,13 @@ function initialize() {
 
     peer.on('close', function () {
         conn = null;
-        $('#statusMsg').text("Connection destroyed. Please refresh");
+        $('#statusMsg').text("");
         console.log('Connection destroyed');
     });
 
     peer.on('error', function (err) {
         console.log(err);
-        $('#statusMsg').text("Error occured. Refresh the page.");
+        $('#statusMsg').text("Error! Refresh the page.");
     });
 }
 
@@ -135,7 +135,6 @@ function verify(remoteAddress) {
     });
 
     conn.on('open', function () {
-        $('#statusMsg').text("Connected to: " + conn.peer);
         console.log("Connected to: " + conn.peer);
 
         //Generate TOTP
@@ -143,19 +142,20 @@ function verify(remoteAddress) {
         var timeCode = totp.getOtp(60, 8);
         console.log(timeCode);
         conn.send(timeCode);
+        $('#statusMsg').text("ePass verification request sent. Don't close the window.");
     });
 
     // Handle incoming data (messages only since this is the signal sender)
     conn.on('data', function (data) {
         if (totp.timeCode(60, 8) === data)
-            alert("Valid ePass");
+            alert("ePass verification succeeded!");
         else
-            alert("Invalid ePass!");
+            alert("ePass verfication failed!");
         conn.close();
     });
 
     conn.on('close', function () {
-        $('#statusMsg').text("Connection closed");
+        $('#statusMsg').text("");
     });
 };
 
@@ -172,6 +172,8 @@ function getUrlParam(name) {
 
 $('#eVerify').click(function () {
     if (remoteDeviceId === null) return;
+
+    $('#statusMsg').text("ePass verification starting...");
     initialize();
     verify(remoteDeviceId);
 });
