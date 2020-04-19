@@ -13,7 +13,7 @@ function onQRCodeScanned(scannedText) {
         $('.qrPreviewVideo')[0].pause();
 
         var html = "";
-        var decompressed = LZString.decompress(JSON.stringify(clone));
+        var decompressed = LZString.decompress(scannedText);
         jQuery.each(JSON.parse(decompressed), function (name, val) {
             if (name === "Device Id") remoteDeviceId = val;
             html += "<div>" + name + ": " + val + "</div>";

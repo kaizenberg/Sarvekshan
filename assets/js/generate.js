@@ -82,7 +82,9 @@ function openICMRWebsite(position) {
 
 function generateQrCode(colorCode, riskLevel) {
     setTimeout(function () {
-        var clone = JSON.parse(JSON.stringify(survey.data));
+        // Disabling serialization of actual answers for privacy
+        //var clone = JSON.parse(JSON.stringify(survey.data));
+        var clone = {};
         var today = new Date();
         clone["Risk Level"] = riskLevel;
         clone["Created On"] = today;
