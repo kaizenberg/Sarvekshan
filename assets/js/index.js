@@ -177,8 +177,10 @@ function ready() {
     conn.on('data', function (data) {
         console.log("Data recieved");
         $('#statusMsg').text("Verification started...");
+        
         if (conn && conn.open) {
             conn.send(data);
+            console.log("Bounced: " + data);
             $('#statusMsg').text("Verification completed!");
         } else {
             console.log('Connection closed');

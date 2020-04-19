@@ -147,13 +147,17 @@ function verify(remoteAddress) {
     conn.on('open', function () {
         console.log("Connected to: " + conn.peer);
 
-        //Generate TOTP
-        var totp = new jsOTP.totp();
-        var timeCode = totp.getOtp(60, 8);
-        console.log(timeCode);
-        conn.send(timeCode);
+        if (conn && conn.open) {
+            //Generate TOTP
+            var totp = new jsOTP.totp();
+            var timeCode = totp.getOtp(60, 8);
+            console.log(timeCode);
+            conn.send(timeCode);
 
-        $('#statusMsg').text("ePass verification request sent.");
+            $('#statusMsg').text("ePass verification request sent.");
+        } else {
+            console.log('Error! Refresh the page');
+        }
     });
 
     // Handle incoming data (messages only since this is the signal sender)
