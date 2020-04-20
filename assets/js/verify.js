@@ -178,7 +178,7 @@ function verify(remoteAddress) {
 
 $('#scannedDataModel').on('shown.bs.modal', function () {
     $('#statusMsg').text("Initializing...");
-    initialize();
+    //initialize();
 })
 
 $('#eVerify').click(function () {
