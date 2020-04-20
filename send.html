@@ -77,12 +77,14 @@
                 conn.on('open', function () {
                     console.log("Connected to: " + conn.peer);
 
-                    if (conn && conn.open) {
-                        conn.send("3542");
-                        console.log("Sent: " + "3542");
-                    } else {
-                        console.log('Connection is closed');
-                    }
+                    setTimeout(() => {
+                        if (conn && conn.open) {
+                            conn.send("3542");
+                            console.log("Sent: " + "3542");
+                        } else {
+                            console.log('Connection is closed');
+                        }
+                    }, 1000);
                 });
                 // Handle incoming data (messages only since this is the signal sender)
                 conn.on('data', function (data) {

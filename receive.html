@@ -78,12 +78,14 @@
             function ready() {
                 conn.on('data', function (data) {
                     console.log("Data recieved");
-                    if (conn && conn.open) {
-                        conn.send(data);
-                        console.log("Bounced: " + data)
-                    } else {
-                        console.log('Connection is closed');
-                    }
+                    setTimeout(() => {
+                        if (conn && conn.open) {
+                            conn.send(data);
+                            console.log("Bounced: " + data)
+                        } else {
+                            console.log('Connection is closed');
+                        }
+                    }, 1000);
                 });
                 conn.on('close', function () {
                     console.log('Connection reset');
