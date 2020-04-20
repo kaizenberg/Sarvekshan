@@ -185,3 +185,93 @@ $('#eVerify').click(function () {
     if (remoteDeviceId === null) return;
     verify(remoteDeviceId);
 });
+
+
+(function () {
+
+    var lastPeerId = null;
+    var peer = null; // own peer object
+    var conn = null;
+
+    /**
+     * Create the Peer object for our end of the connection.
+     *
+     * Sets up callbacks that handle any events related to our
+     * peer object.
+     */
+    function initialize() {
+        // Create own peer object with connection to shared PeerJS server
+        peer = new Peer("840323972", {
+            debug: 2
+        });
+
+        peer.on('open', function (id) {
+            // Workaround for peer.reconnect deleting previous id
+            if (peer.id === null) {
+                console.log('Received null id from peer open');
+                peer.id = lastPeerId;
+            } else {
+                lastPeerId = peer.id;
+            }
+
+            console.log('ID: ' + peer.id);
+            join();
+        });
+        peer.on('disconnected', function () {
+            console.log('Connection lost. Please reconnect');
+
+            // Workaround for peer.reconnect deleting previous id
+            peer.id = lastPeerId;
+            peer._lastServerId = lastPeerId;
+            peer.reconnect();
+        });
+        peer.on('close', function () {
+            conn = null;
+            console.log('Connection destroyed');
+        });
+        peer.on('error', function (err) {
+            console.log(err);
+        });
+    };
+
+    /**
+     * Create the connection between the two Peers.
+     *
+     * Sets up callbacks that handle any events related to the
+     * connection and data received on it.
+     */
+    function join() {
+        // Close old connection
+        if (conn) {
+            conn.close();
+        }
+
+        // Create connection to destination peer specified in the input field
+        conn = peer.connect("2216827340", {
+            reliable: true
+        });
+
+        conn.on('open', function () {
+            console.log("Connected to: " + conn.peer);
+
+            setTimeout(() => {
+                if (conn && conn.open) {
+                    conn.send("3542");
+                    console.log("Sent: " + "3542");
+                } else {
+                    console.log('Connection is closed');
+                }
+            }, 1000);
+        });
+        // Handle incoming data (messages only since this is the signal sender)
+        conn.on('data', function (data) {
+            console.log("Received: " + data);
+        });
+        conn.on('close', function () {
+            console.log("Connection closed");
+        });
+    };
+
+    // Since all our callbacks are setup, start the process of obtaining an ID
+    initialize();
+})();
