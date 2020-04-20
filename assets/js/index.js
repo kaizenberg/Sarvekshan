@@ -112,9 +112,7 @@ var conn = null;
 
 function initialize() {
     // Create own peer object with connection to shared PeerJS server
-    peer = new Peer(String(lastPeerId), {
-        debug: 3
-    });
+    peer = new Peer(String(lastPeerId));
 
     peer.on('open', function (id) {
         // Workaround for peer.reconnect deleting previous id
