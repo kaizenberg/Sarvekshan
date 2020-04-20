@@ -100,75 +100,77 @@ function removePass(element) {
 }
 
 $('#savedQrCodeModal').on('shown.bs.modal', function () {
-    (function () {
-        var lastPeerId = new ClientJS().getFingerprint();
-        var peer = null; // Own peer object
-        var conn = null;
+   
+});
 
-        function initialize() {
-            // Create own peer object with connection to shared PeerJS server
-            peer = new Peer(lastPeerId);
+(function () {
+    var lastPeerId = String(new ClientJS().getFingerprint());
+    var peer = null; // Own peer object
+    var conn = null;
 
-            peer.on('open', function (id) {
-                // Workaround for peer.reconnect deleting previous id
-                if (peer.id === null) {
-                    console.log('Received null id from peer open');
-                    peer.id = lastPeerId;
-                } else {
-                    lastPeerId = peer.id;
-                }
+    function initialize() {
+        // Create own peer object with connection to shared PeerJS server
+        peer = new Peer(lastPeerId);
 
-                console.log('ID: ' + peer.id);
-            });
-            peer.on('connection', function (c) {
-                // Allow only a single connection
-                if (conn) {
-                    c.on('open', function () {
-                        c.send("Already connected to another client");
-                        setTimeout(function () { c.close(); }, 500);
-                    });
-                    return;
-                }
-
-                conn = c;
-                console.log("Connected to: " + conn.peer);
-                ready();
-            });
-            peer.on('disconnected', function () {
-                console.log('Connection lost. Please reconnect');
-
-                // Workaround for peer.reconnect deleting previous id
+        peer.on('open', function (id) {
+            // Workaround for peer.reconnect deleting previous id
+            if (peer.id === null) {
+                console.log('Received null id from peer open');
                 peer.id = lastPeerId;
-                peer._lastServerId = lastPeerId;
-                peer.reconnect();
-            });
-            peer.on('close', function () {
-                conn = null;
-                console.log('Connection destroyed');
-            });
-            peer.on('error', function (err) {
-                console.log(err);
-            });
-        };
+            } else {
+                lastPeerId = peer.id;
+            }
 
-        function ready() {
-            conn.on('data', function (data) {
-                console.log("Data recieved");
-                setTimeout(() => {
-                    if (conn && conn.open) {
-                        conn.send(data);
-                        console.log("Bounced: " + data)
-                    } else {
-                        console.log('Connection is closed');
-                    }
-                }, 1000);
-            });
-            conn.on('close', function () {
-                console.log('Connection reset');
-                conn = null;
-            });
-        }
+            console.log('ID: ' + peer.id);
+        });
+        peer.on('connection', function (c) {
+            // Allow only a single connection
+            if (conn) {
+                c.on('open', function () {
+                    c.send("Already connected to another client");
+                    setTimeout(function () { c.close(); }, 500);
+                });
+                return;
+            }
 
-        initialize();
-    })();
-})
+            conn = c;
+            console.log("Connected to: " + conn.peer);
+            ready();
+        });
+        peer.on('disconnected', function () {
+            console.log('Connection lost. Please reconnect');
+
+            // Workaround for peer.reconnect deleting previous id
+            peer.id = lastPeerId;
+            peer._lastServerId = lastPeerId;
+            peer.reconnect();
+        });
+        peer.on('close', function () {
+            conn = null;
+            console.log('Connection destroyed');
+        });
+        peer.on('error', function (err) {
+            console.log(err);
+        });
+    };
+
+    function ready() {
+        conn.on('data', function (data) {
+            console.log("Data recieved");
+            setTimeout(() => {
+                if (conn && conn.open) {
+                    conn.send(data);
+                    console.log("Bounced: " + data)
+                } else {
+                    console.log('Connection is closed');
+                }
+            }, 1000);
+        });
+        conn.on('close', function () {
+            console.log('Connection reset');
+            conn = null;
+        });
+    }
+
+    initialize();
+})();
