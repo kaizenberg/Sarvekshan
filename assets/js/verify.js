@@ -83,78 +83,77 @@ function JsQRScannerReady() {
 }
 
 $('#eVerify').click(function () {
-    
+    join();
 });
 
-(function () {
-    var lastPeerId = String(new ClientJS().getFingerprint());
-    var peer = null; // own peer object
-    var conn = null;
+var lastPeerId = String(new ClientJS().getFingerprint());
+var peer = null; // own peer object
+var conn = null;
 
-    function initialize() {
-        // Create own peer object with connection to shared PeerJS server
-        peer = new Peer(lastPeerId);
+function initialize() {
+    // Create own peer object with connection to shared PeerJS server
+    peer = new Peer(lastPeerId);
 
-        peer.on('open', function (id) {
-            // Workaround for peer.reconnect deleting previous id
-            if (peer.id === null) {
-                console.log('Received null id from peer open');
-                peer.id = lastPeerId;
-            } else {
-                lastPeerId = peer.id;
-            }
-
-            console.log('ID: ' + peer.id);
-            join();
-        });
-        peer.on('disconnected', function () {
-            console.log('Connection lost. Please reconnect');
-
-            // Workaround for peer.reconnect deleting previous id
+    peer.on('open', function (id) {
+        // Workaround for peer.reconnect deleting previous id
+        if (peer.id === null) {
+            console.log('Received null id from peer open');
             peer.id = lastPeerId;
-            peer._lastServerId = lastPeerId;
-            peer.reconnect();
-        });
-        peer.on('close', function () {
-            conn = null;
-            console.log('Connection destroyed');
-        });
-        peer.on('error', function (err) {
-            console.log(err);
-        });
-    };
-    function join() {
-        // Close old connection
-        if (conn) {
-            conn.close();
+        } else {
+            lastPeerId = peer.id;
         }
 
-        // Create connection to destination peer specified in the input field
-        conn = peer.connect("2216827340", {
-            reliable: true
-        });
+        console.log('ID: ' + peer.id);
+    });
+    peer.on('disconnected', function () {
+        console.log('Connection lost. Please reconnect');
 
-        conn.on('open', function () {
-            console.log("Connected to: " + conn.peer);
+        // Workaround for peer.reconnect deleting previous id
+        peer.id = lastPeerId;
+        peer._lastServerId = lastPeerId;
+        peer.reconnect();
+    });
+    peer.on('close', function () {
+        conn = null;
+        console.log('Connection destroyed');
+    });
+    peer.on('error', function (err) {
+        console.log(err);
+    });
+};
+function join() {
+    // Close old connection
+    if (conn) {
+        conn.close();
+    }
 
-            setTimeout(() => {
-                if (conn && conn.open) {
-                    conn.send("3542");
-                    console.log("Sent: " + "3542");
-                } else {
-                    console.log('Connection is closed');
-                }
-            }, 1000);
-        });
-        // Handle incoming data (messages only since this is the signal sender)
-        conn.on('data', function (data) {
-            console.log("Received: " + data);
-        });
-        conn.on('close', function () {
-            console.log("Connection closed");
-        });
-    };
+    // Create connection to destination peer specified in the input field
+    conn = peer.connect(String(remoteDeviceId), {
+        reliable: true
+    });
 
-    // Since all our callbacks are setup, start the process of obtaining an ID
-    initialize();
-})();
+    conn.on('open', function () {
+        console.log("Connected to: " + conn.peer);
+
+        setTimeout(() => {
+            if (conn && conn.open) {
+                var totp = new jsOTP.totp();
+                var timeCode = totp.getOtp(60, 8);
+                conn.send(String(timeCode));
+                console.log("Sent: " + timeCode);
+            } else {
+                console.log('Connection is closed');
+            }
+        }, 1000);
+    });
+    // Handle incoming data (messages only since this is the signal sender)
+    conn.on('data', function (data) {
+        console.log("Received: " + data);
+    });
+    conn.on('close', function () {
+        console.log("Connection closed");
+    });
+};
+
+// Since all our callbacks are setup, start the process of obtaining an ID
+initialize();
