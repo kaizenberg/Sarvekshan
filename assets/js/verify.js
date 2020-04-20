@@ -106,7 +106,7 @@ function initialize() {
         console.log('ID: ' + peer.id);
 
         setTimeout(() => {
-           join(); 
+            join();
         }, 1000);
     });
     peer.on('disconnected', function () {

@@ -135,7 +135,9 @@ function initialize() {
         conn = c;
         console.log("Connected to: " + conn.peer);
 
-        ready();
+        setTimeout(() => {
+            ready();
+        }, 1000);
     });
     peer.on('disconnected', function () {
         console.log('Connection lost. Please reconnect');
