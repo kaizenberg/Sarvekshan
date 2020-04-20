@@ -83,7 +83,7 @@ function JsQRScannerReady() {
 }
 
 $('#eVerify').click(function () {
-    join();
+    initialize();
 });
 
 var lastPeerId = String(new ClientJS().getFingerprint());
@@ -104,6 +104,10 @@ function initialize() {
         }
 
         console.log('ID: ' + peer.id);
+
+        setTimeout(() => {
+           join(); 
+        }, 1000);
     });
     peer.on('disconnected', function () {
         console.log('Connection lost. Please reconnect');
@@ -154,6 +158,3 @@ function join() {
         console.log("Connection closed");
     });
 };
-
-// Since all our callbacks are setup, start the process of obtaining an ID
-initialize();
