@@ -92,6 +92,7 @@ var conn = null;
 initialize();
 
 function initialize() {
+    alert("starting");
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(String(lastPeerId));
 
