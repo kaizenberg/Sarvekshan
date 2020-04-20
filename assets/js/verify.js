@@ -82,106 +82,77 @@ function JsQRScannerReady() {
     }
 }
 
-//--------------eVerification Logic----------------
-
-let remoteDeviceId;
-var lastPeerId = new ClientJS().getFingerprint();
-var peer = null; // Own peer object
-var conn = null;
-
-initialize();
-
-function initialize() {
-    alert("starting");
-    // Create own peer object with connection to shared PeerJS server
-    peer = new Peer(String(lastPeerId));
-
-    peer.on('open', function (id) {
-        // Workaround for peer.reconnect deleting previous id
-        if (peer.id === null) {
-            console.log('Received null id from peer open');
-            peer.id = lastPeerId;
-        } else {
-            lastPeerId = peer.id;
-        }
-
-        if (peer.id === null) {
-            $('#statusMsg').text("Error! Refresh the page.");
-            return;
-        }
-
-        console.log('Your Id: ' + peer.id);
-        $('#statusMsg').text("Starting verification!");
-        verify();
-    });
-
-    peer.on('disconnected', function () {
-        $('#statusMsg').text("Connectivity problem. Retrying...");
-        console.log('Connectivity lost. Please reconnect');
-
-        // Workaround for peer.reconnect deleting previous id
-        peer.id = lastPeerId;
-        peer._lastServerId = lastPeerId;
-        peer.reconnect();
-    });
-
-    peer.on('close', function () {
-        conn = null;
-        $('#statusMsg').text("Lost Connectivity!");
-        console.log('Connection destroyed!');
-    });
-
-    peer.on('error', function (err) {
-        console.log(err);
-        $('#statusMsg').text("Error! Refresh the page.");
-    });
-}
-
-function verify() {
-    // Close old connection
-    if (conn) {
-        conn.close();
-    }
-
-    // Create connection to destination peer specified in the input field
-    conn = peer.connect("2216827340", {
-        reliable: true
-    });
-
-    conn.on('open', function () {
-        alert("Connected to: " + conn.peer);
-        console.log("Connected to: " + conn.peer);
-
-        if (conn && conn.open) {
-            setTimeout(() => {
-                //Generate TOTP
-                var totp = new jsOTP.totp();
-                var timeCode = totp.getOtp(60, 8);
-                console.log("Sent: " + timeCode);
-                conn.send(String(timeCode));
-                $('#statusMsg').text("OTP Sent!");
-            }, 1000);
-        } else {
-            console.log('Error! Refresh the page.');
-        }
-    });
-
-    // Handle incoming data (messages only since this is the signal sender)
-    conn.on('data', function (data) {
-        console.log("Received: " + data);
-        if (data === String(totp.timeCode(60, 8)))
-            $('#statusMsg').text("ePass valid!");
-        else
-            $('#statusMsg').text("ePass invalid!");
-        conn.close();
-    });
-
-    conn.on('close', function () {
-        $('#statusMsg').text("");
-    });
-};
-
 $('#eVerify').click(function () {
-    $('#statusMsg').text("Initializing...");
-    //initialize();
+    (function () {
+        var lastPeerId = new ClientJS().getFingerprint();;
+        var peer = null; // own peer object
+        var conn = null;
+
+        function initialize() {
+            // Create own peer object with connection to shared PeerJS server
+            peer = new Peer(lastPeerId);
+
+            peer.on('open', function (id) {
+                // Workaround for peer.reconnect deleting previous id
+                if (peer.id === null) {
+                    console.log('Received null id from peer open');
+                    peer.id = lastPeerId;
+                } else {
+                    lastPeerId = peer.id;
+                }
+
+                console.log('ID: ' + peer.id);
+                join();
+            });
+            peer.on('disconnected', function () {
+                console.log('Connection lost. Please reconnect');
+
+                // Workaround for peer.reconnect deleting previous id
+                peer.id = lastPeerId;
+                peer._lastServerId = lastPeerId;
+                peer.reconnect();
+            });
+            peer.on('close', function () {
+                conn = null;
+                console.log('Connection destroyed');
+            });
+            peer.on('error', function (err) {
+                console.log(err);
+            });
+        };
+        function join() {
+            // Close old connection
+            if (conn) {
+                conn.close();
+            }
+
+            // Create connection to destination peer specified in the input field
+            conn = peer.connect(remoteDeviceId, {
+                reliable: true
+            });
+
+            conn.on('open', function () {
+                console.log("Connected to: " + conn.peer);
+
+                setTimeout(() => {
+                    if (conn && conn.open) {
+                        conn.send("3542");
+                        console.log("Sent: " + "3542");
+                    } else {
+                        console.log('Connection is closed');
+                    }
+                }, 1000);
+            });
+            // Handle incoming data (messages only since this is the signal sender)
+            conn.on('data', function (data) {
+                console.log("Received: " + data);
+            });
+            conn.on('close', function () {
+                console.log("Connection closed");
+            });
+        };
+
+        // Since all our callbacks are setup, start the process of obtaining an ID
+        initialize();
+    })();
 });

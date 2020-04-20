@@ -100,98 +100,75 @@ function removePass(element) {
 }
 
 $('#savedQrCodeModal').on('shown.bs.modal', function () {
-    $('#statusMsg').text("Initializing...");
-    //initialize();
-})
+    (function () {
+        var lastPeerId = new ClientJS().getFingerprint();
+        var peer = null; // Own peer object
+        var conn = null;
 
-//---------------Peering---------------
+        function initialize() {
+            // Create own peer object with connection to shared PeerJS server
+            peer = new Peer(lastPeerId);
 
-var lastPeerId = new ClientJS().getFingerprint();
-var peer = null; // Own peer object
-var conn = null;
+            peer.on('open', function (id) {
+                // Workaround for peer.reconnect deleting previous id
+                if (peer.id === null) {
+                    console.log('Received null id from peer open');
+                    peer.id = lastPeerId;
+                } else {
+                    lastPeerId = peer.id;
+                }
 
-initialize();
-
-function initialize() {
-    // Create own peer object with connection to shared PeerJS server
-    peer = new Peer(String(lastPeerId));
-
-    peer.on('open', function (id) {
-        // Workaround for peer.reconnect deleting previous id
-        if (peer.id === null) {
-            console.log('Received null id from peer open');
-            peer.id = lastPeerId;
-        } else {
-            lastPeerId = peer.id;
-        }
-
-        if (peer.id === null) {
-            $('#statusMsg').text("Error! Refresh the page.");
-            return;
-        }
-
-        console.log('Your Id: ' + peer.id);
-        $('#statusMsg').text("Ready for verification.");
-    });
-
-    peer.on('connection', function (c) {
-        // Allow only a single connection
-        if (conn) {
-            c.on('open', function () {
-                c.send("BUSY");
-                setTimeout(function () { c.close(); }, 500);
+                console.log('ID: ' + peer.id);
             });
-            return;
+            peer.on('connection', function (c) {
+                // Allow only a single connection
+                if (conn) {
+                    c.on('open', function () {
+                        c.send("Already connected to another client");
+                        setTimeout(function () { c.close(); }, 500);
+                    });
+                    return;
+                }
+
+                conn = c;
+                console.log("Connected to: " + conn.peer);
+                ready();
+            });
+            peer.on('disconnected', function () {
+                console.log('Connection lost. Please reconnect');
+
+                // Workaround for peer.reconnect deleting previous id
+                peer.id = lastPeerId;
+                peer._lastServerId = lastPeerId;
+                peer.reconnect();
+            });
+            peer.on('close', function () {
+                conn = null;
+                console.log('Connection destroyed');
+            });
+            peer.on('error', function (err) {
+                console.log(err);
+            });
+        };
+
+        function ready() {
+            conn.on('data', function (data) {
+                console.log("Data recieved");
+                setTimeout(() => {
+                    if (conn && conn.open) {
+                        conn.send(data);
+                        console.log("Bounced: " + data)
+                    } else {
+                        console.log('Connection is closed');
+                    }
+                }, 1000);
+            });
+            conn.on('close', function () {
+                console.log('Connection reset');
+                conn = null;
+            });
         }
 
-        conn = c;
-        console.log("Connected to: " + conn.peer);
-        $('#statusMsg').text("Verification starting...");
-
-        ready();
-    });
-
-    peer.on('disconnected', function () {
-        $('#statusMsg').text("Connection problem. Retrying...");
-        console.log('Connection lost. Reconnecting...');
-
-        // Workaround for peer.reconnect deleting previous id
-        peer.id = lastPeerId;
-        peer._lastServerId = lastPeerId;
-        peer.reconnect();
-    });
-
-    peer.on('close', function () {
-        conn = null;
-        console.log('Connection closed');
-        $('#statusMsg').text("");
-    });
-
-    peer.on('error', function (err) {
-        console.log(err);
-        $('#statusMsg').text("Error! Refresh the page.");
-    });
-}
-
-function ready() {
-    conn.on('data', function (data) {
-        console.log("Data recieved");
-        $('#statusMsg').text("OTP received!");
-
-        if (conn && conn.open) {
-            setTimeout(() => {
-                conn.send(data);
-                console.log("Bounced: " + data);
-                $('#statusMsg').text("Response sent!");
-            }, 1000);
-        } else {
-            console.log('Connection closed');
-            $('#statusMsg').text("Verification interrupted!");
-        }
-    });
-
-    conn.on('close', function () {
-        $('#statusMsg').text("");
-        conn = null;
-    });
-}
+        initialize();
+    })();
+})
