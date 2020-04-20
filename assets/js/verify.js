@@ -154,7 +154,7 @@ function verify() {
                 var totp = new jsOTP.totp();
                 var timeCode = totp.getOtp(60, 8);
                 console.log("Sent: " + timeCode);
-                conn.send(timeCode);
+                conn.send(String(timeCode));
                 $('#statusMsg').text("OTP Sent!");
             }, 1000);
         } else {
@@ -165,7 +165,7 @@ function verify() {
     // Handle incoming data (messages only since this is the signal sender)
     conn.on('data', function (data) {
         console.log("Received: " + data);
-        if (data === totp.timeCode(60, 8))
+        if (data === String(totp.timeCode(60, 8)))
             $('#statusMsg').text("ePass valid!");
         else
             $('#statusMsg').text("ePass invalid!");
