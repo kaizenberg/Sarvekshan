@@ -82,7 +82,6 @@ function JsQRScannerReady() {
     }
 }
 
-
 //--------------eVerification Logic----------------
 
 let remoteDeviceId;
@@ -106,12 +105,12 @@ function initialize() {
         }
 
         if (peer.id === null) {
-            $('#statusMsg').text("Error! Refresh the page!");
+            $('#statusMsg').text("Error! Refresh the page.");
             return;
         }
 
         console.log('Your Id: ' + peer.id);
-        $('#statusMsg').text("Start ePass verification!");
+        $('#statusMsg').text("Start verification!");
     });
 
     peer.on('disconnected', function () {
@@ -127,7 +126,7 @@ function initialize() {
     peer.on('close', function () {
         conn = null;
         $('#statusMsg').text("");
-        console.log('Connection destroyed');
+        console.log('Connection destroyed!');
     });
 
     peer.on('error', function (err) {
@@ -151,24 +150,26 @@ function verify(remoteAddress) {
         console.log("Connected to: " + conn.peer);
 
         if (conn && conn.open) {
-            //Generate TOTP
-            var totp = new jsOTP.totp();
-            var timeCode = totp.getOtp(60, 8);
-            console.log(timeCode);
-            conn.send(timeCode);
-
-            $('#statusMsg').text("ePass verification request sent.");
+            setTimeout(() => {
+                //Generate TOTP
+                var totp = new jsOTP.totp();
+                var timeCode = totp.getOtp(60, 8);
+                console.log("Sent: " + timeCode);
+                conn.send(timeCode);
+                $('#statusMsg').text("OTP Sent!");
+            }, 1000);
         } else {
-            console.log('Error! Refresh the page');
+            console.log('Error! Refresh the page.');
         }
     });
 
     // Handle incoming data (messages only since this is the signal sender)
     conn.on('data', function (data) {
+        console.log("Received: " + data);
         if (data === totp.timeCode(60, 8))
-            alert("ePass verification succeeded!");
+            $('#statusMsg').text("ePass valid!");
         else
-            alert("ePass verfication failed!");
+            $('#statusMsg').text("ePass invalid!");
         conn.close();
     });
 

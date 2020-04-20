@@ -126,12 +126,12 @@ function initialize() {
         }
 
         if (peer.id === null) {
-            $('#statusMsg').text("Error! Refresh the page!");
+            $('#statusMsg').text("Error! Refresh the page.");
             return;
         }
 
         console.log('Your Id: ' + peer.id);
-        $('#statusMsg').text("Ready for ePass verification!");
+        $('#statusMsg').text("Ready for verification.");
     });
 
     peer.on('connection', function (c) {
@@ -146,7 +146,7 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
-        $('#statusMsg').text("ePass verification request received.");
+        $('#statusMsg').text("Verification starting...");
 
         ready();
     });
@@ -176,12 +176,14 @@ function initialize() {
 function ready() {
     conn.on('data', function (data) {
         console.log("Data recieved");
-        $('#statusMsg').text("Verification started...");
-        
+        $('#statusMsg').text("OTP received!");
+
         if (conn && conn.open) {
-            conn.send(data);
-            console.log("Bounced: " + data);
-            $('#statusMsg').text("Verification completed!");
+            setTimeout(() => {
+                conn.send(data);
+                console.log("Bounced: " + data);
+                $('#statusMsg').text("Response sent!");
+            }, 1000);
         } else {
             console.log('Connection closed');
             $('#statusMsg').text("Verification interrupted!");
