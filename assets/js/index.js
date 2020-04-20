@@ -101,7 +101,7 @@ function removePass(element) {
 
 $('#savedQrCodeModal').on('shown.bs.modal', function () {
     $('#statusMsg').text("Initializing...");
-    initialize();
+    //initialize();
 })
 
 //---------------Peering---------------
@@ -109,6 +109,8 @@ $('#savedQrCodeModal').on('shown.bs.modal', function () {
 var lastPeerId = new ClientJS().getFingerprint();
 var peer = null; // Own peer object
 var conn = null;
+
+initialize();
 
 function initialize() {
     // Create own peer object with connection to shared PeerJS server

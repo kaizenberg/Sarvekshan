@@ -89,6 +89,8 @@ var lastPeerId = new ClientJS().getFingerprint();
 var peer = null; // Own peer object
 var conn = null;
 
+initialize();
+
 function initialize() {
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(String(lastPeerId));
@@ -141,11 +143,12 @@ function verify() {
     }
 
     // Create connection to destination peer specified in the input field
-    conn = peer.connect(remoteDeviceId, {
+    conn = peer.connect("2216827340", {
         reliable: true
     });
 
     conn.on('open', function () {
+        alert("Connected to: " + conn.peer);
         console.log("Connected to: " + conn.peer);
 
         if (conn && conn.open) {
@@ -179,5 +182,5 @@ function verify() {
 
 $('#eVerify').click(function () {
     $('#statusMsg').text("Initializing...");
-    initialize();
+    //initialize();
 });
