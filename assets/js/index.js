@@ -126,7 +126,7 @@ function initialize() {
             return;
         }
         console.log('ID: ' + peer.id);
-        $('#statusMsg').text("Connecting");
+        $('#statusMsg').text("Waiting...");
     });
     peer.on('connection', function (c) {
         // Allow only a single connection
@@ -147,7 +147,7 @@ function initialize() {
         }, 1000);
     });
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Reconnecting");
+        $('#statusMsg').text("Reconnecting...");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id

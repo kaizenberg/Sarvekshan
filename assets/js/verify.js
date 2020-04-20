@@ -109,14 +109,14 @@ function initialize() {
             return;
         }
         console.log('ID: ' + peer.id);
-        $('#statusMsg').text("Connecting");
+        $('#statusMsg').text("Connecting...");
 
         setTimeout(() => {
             join();
         }, 1000);
     });
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Reconnecting");
+        $('#statusMsg').text("Reconnecting...");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -167,7 +167,7 @@ function join() {
         var totp = new jsOTP.totp();
         var timeCode = totp.getOtp(60, 8);
         if (data === timeCode)
-            $('#statusMsg').text("Verified");
+            $('#statusMsg').text("ePass Verified!");
         else
             $('#statusMsg').text("Invalid Response");
 
