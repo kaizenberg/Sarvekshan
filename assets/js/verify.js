@@ -91,6 +91,7 @@ var peer = null; // own peer object
 var conn = null;
 
 function initialize() {
+    $('#statusMsg').text("Initializing...");
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(lastPeerId);
 
@@ -103,13 +104,19 @@ function initialize() {
             lastPeerId = peer.id;
         }
 
+        if (id === null) {
+            $('#statusMsg').text("Error");
+            return;
+        }
         console.log('ID: ' + peer.id);
+        $('#statusMsg').text("Connecting");
 
         setTimeout(() => {
             join();
         }, 1000);
     });
     peer.on('disconnected', function () {
+        $('#statusMsg').text("Reconnecting");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -120,9 +127,11 @@ function initialize() {
     peer.on('close', function () {
         conn = null;
         console.log('Connection destroyed');
+        $('#statusMsg').text("Offline");
     });
     peer.on('error', function (err) {
         console.log(err);
+        $('#statusMsg').text("Error");
     });
 };
 function join() {
@@ -137,6 +146,7 @@ function join() {
     });
 
     conn.on('open', function () {
+        $('#statusMsg').text("Connected");
         console.log("Connected to: " + conn.peer);
 
         setTimeout(() => {
@@ -145,16 +155,26 @@ function join() {
                 var timeCode = totp.getOtp(60, 8);
                 conn.send(String(timeCode));
                 console.log("Sent: " + timeCode);
+                $('#statusMsg').text("Request Sent");
             } else {
                 console.log('Connection is closed');
+                $('#statusMsg').text("Connection Lost");
             }
         }, 1000);
     });
     // Handle incoming data (messages only since this is the signal sender)
     conn.on('data', function (data) {
+        var totp = new jsOTP.totp();
+        var timeCode = totp.getOtp(60, 8);
+        if (data === timeCode)
+            $('#statusMsg').text("Verified");
+        else
+            $('#statusMsg').text("Invalid Response");
+
         console.log("Received: " + data);
     });
     conn.on('close', function () {
         console.log("Connection closed");
+        $('#statusMsg').text("Connection Closed");
     });
 };

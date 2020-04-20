@@ -108,6 +108,7 @@ var peer = null; // Own peer object
 var conn = null;
 
 function initialize() {
+    $('#statusMsg').text("Initializing...");
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(lastPeerId);
 
@@ -120,13 +121,18 @@ function initialize() {
             lastPeerId = peer.id;
         }
 
+        if (id === null) {
+            $('#statusMsg').text("Error");
+            return;
+        }
         console.log('ID: ' + peer.id);
+        $('#statusMsg').text("Connecting");
     });
     peer.on('connection', function (c) {
         // Allow only a single connection
         if (conn) {
             c.on('open', function () {
-                c.send("Already connected to another client");
+                c.send("BUSY");
                 setTimeout(function () { c.close(); }, 500);
             });
             return;
@@ -134,12 +140,14 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
+        $('#statusMsg').text("Connected");
 
         setTimeout(() => {
             ready();
         }, 1000);
     });
     peer.on('disconnected', function () {
+        $('#statusMsg').text("Reconnecting");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -149,27 +157,33 @@ function initialize() {
     });
     peer.on('close', function () {
         conn = null;
+        $('#statusMsg').text("Offline");
         console.log('Connection destroyed');
     });
     peer.on('error', function (err) {
+        $('#statusMsg').text("Error");
         console.log(err);
     });
 };
 
 function ready() {
     conn.on('data', function (data) {
+        $('#statusMsg').text("Request Received");
         console.log("Data recieved");
         setTimeout(() => {
             if (conn && conn.open) {
                 conn.send(data);
+                $('#statusMsg').text("Response Sent");
                 console.log("Bounced: " + data)
             } else {
                 console.log('Connection is closed');
+                $('#statusMsg').text("Connection Lost");
             }
         }, 1000);
     });
     conn.on('close', function () {
         console.log('Connection reset');
         conn = null;
+        $('#statusMsg').text("Connection Closed");
     });
 }
