@@ -99,8 +99,8 @@ function removePass(element) {
     }
 }
 
-$('#eVerify').click(function () {
-    ready();
+$('#savedQrCodeModal').on('shown.bs.modal', function () {
+    initialize();
 });
 
 var lastPeerId = String(new ClientJS().getFingerprint());
@@ -134,6 +134,8 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
+
+        ready();
     });
     peer.on('disconnected', function () {
         console.log('Connection lost. Please reconnect');
@@ -169,5 +171,3 @@ function ready() {
         conn = null;
     });
 }
-
-initialize();
