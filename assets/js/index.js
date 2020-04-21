@@ -74,7 +74,7 @@ $(document).on("click", ".card-hover-pass", function (event) {
             return;
         }
         $('#ePassKey').text(key);
-        $('#qrCodeViewLink').attr('src', value);
+        $('#qrCodeViewLink').attr('href', value);
         $('#qrCodeView').attr('src', value);
         $('#savedQrCodeModal').modal('show');
         console.log(key + " : retrieved from local db");
