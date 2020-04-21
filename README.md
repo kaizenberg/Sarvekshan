@@ -6,7 +6,7 @@ This tool is a PoC for showcasing how technology can be used to fight COVID-19 s
 
 ![Answer Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
 
-![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
+![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
 
 ![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
 
@@ -37,7 +37,7 @@ How it helps?
 Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent.
 
 Following diagram shows how ePass generation & verification process can be implemented.
-![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/Sarvekshan%20-%20ePass%20Workflow.png)
+![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/workflow.png)
 
 The tool is using opensource dependencies. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
 
