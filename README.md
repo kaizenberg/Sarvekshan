@@ -2,13 +2,28 @@
  
 This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting lock-down restrictons for people who are at lowest risk, perfectly healthy, & are essential-services/health/supply-chain workers. It will be really useful if government can issue a Unique ID to  people who are already tested negative or recovered from COVID-19 infection. It can be used in this app for strengthening the unique ID generation logic.
 
+How to use the app?
+
+1. Open the tool in your browser
 ![Home Page](https://github.com/kaizenberg/Sarvekshan/blob/master/home.png)
 
-![Answer Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
+2. Click on Generate button to view the Self-Screening page
+![View Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
 
+3. Answer all questions, provie required details, submit the assessment, & get an ePass. Click on it to download to the device.
+![Get ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/result.png)
+
+4. Checkout more information based on your current location. Avail free online services from 3rd party.
+![View Location-based Info](![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
+
+5. Go back to home page to view the ePass generated. Sho this to obain entry to a pubic place.
 ![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
 
+6. Guards at the entrance will open the same app and click on eVerify button to scan the ePass shown to them.
 ![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
+
+Additionally, if ever browser history is cleared and saved ePasses are deleted. Click on Upload button to upload any previously downlosed ePasses from th device.
+![Upload ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
 
 How is this design better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
