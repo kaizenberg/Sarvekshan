@@ -2,7 +2,7 @@
  
 This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down. This should allow lifting of lock-down restrictons for at least people who are at lowest risk, perfectly healthy, & tested-negative by issuing them e-passes. e-Passes can be issued to essential-services/health/supply-chain workers first. 
 
-With this proposed soution; government should be able to track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See all screenshots below, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
+With this proposed soution; government can track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See all screenshots below, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
 
 How to use the app?
 
@@ -12,22 +12,22 @@ How to use the app?
 2. Click on Generate button to view the Self-Screening page
 ![View Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
 
-3. Answer all questions, provie required details, submit the assessment, & get an ePass. Click on it to download to the device.
+3. Afer answering all questions, providing required details, & submitting the assessment you will get an ePass that will be valid for next 7 days. Click on it to download to your device as a backup. You can also print it if you cannot carry the device to public places that you plan to visit.
 ![Get ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/result.png)
 
-4. Checkout more information based on your current location. Avail free online services from 3rd party.
+4. Also, you can checkout more information based on current location. Avail free online services from 3rd party.
 ![View Location-based Info](![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
 
-5. Go back to home page to view the ePass generated. Sho this to obain entry to a pubic place.
+5. Go back to home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested view the ePass & show it to authority at the place.
 ![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
 
-6. Guards at the entrance will open the same app and click on eVerify button to scan the ePass shown to them.
+6. Authority at the place will open this same app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If ePass is approved you are allowed to enter. 
 ![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
 
-Additionally, if ever browser history is cleared and saved ePasses are deleted. Click on Upload button to upload any previously downlosed ePasses from th device.
+Additionally, if you accidentaly clear browser history you can click on Upload button to upload backed up copy of ePasses from your device into the app again.
 ![Upload ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/upload.png)
 
-How is this design better?
+How this design maybe better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
 - Also, this tool doesn't store any user sensitive private information on any servers.
 - Information is directly stored on user's device & user has the right to download or delete it from the device as well.
@@ -43,7 +43,7 @@ How it works?
 - ePass should not be deleted from the device that generated it otherwise verification will fail. In such case administration is allowed to either gather visitor's contact details, other identify, or deny entry.
 - Visitors with only Green colored QR code should be allowe to enter.
 
-How it helps?
+How it may help?
 - This ensures only healthy people are allowed to visit their office or public places.
 - This keeps user's information competely private only until his health status changes to Blue, Orange, or Red.
 - So in the worse case scenario, if the visitor is later declared COVID-19 positive then it is possible to identify all the places & potentially infected people.
