@@ -1,6 +1,8 @@
 # Sarvekshan
  
-This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting lock-down restrictons for people who are at lowest risk, perfectly healthy, & are essential-services/health/supply-chain workers. It will be really useful if government can issue a Unique ID to  people who are already tested negative or recovered from COVID-19 infection. It can be used in this app for strengthening the unique ID generation logic.
+This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting of lock-down restrictons at least for people who are at lowest risk, perfectly healthy, & tested negative by issuing them e-passes. e-Passes can be issued to essential-services/health/supply-chain workers first. 
+
+With this proposed soution; government should be able to track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See the screenshots, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
 
 How to use the app?
 
