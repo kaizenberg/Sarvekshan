@@ -1,8 +1,8 @@
 # Sarvekshan
  
-This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting of lock-down restrictons at least for people who are at lowest risk, perfectly healthy, & tested negative by issuing them e-passes. e-Passes can be issued to essential-services/health/supply-chain workers first. 
+This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down. This should allow lifting of lock-down restrictons for at least people who are at lowest risk, perfectly healthy, & tested-negative by issuing them e-passes. e-Passes can be issued to essential-services/health/supply-chain workers first. 
 
-With this proposed soution; government should be able to track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See the screenshots, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
+With this proposed soution; government should be able to track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See all screenshots below, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
 
 How to use the app?
 
@@ -25,7 +25,7 @@ How to use the app?
 ![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
 
 Additionally, if ever browser history is cleared and saved ePasses are deleted. Click on Upload button to upload any previously downlosed ePasses from th device.
-![Upload ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
+![Upload ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/upload.png)
 
 How is this design better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
