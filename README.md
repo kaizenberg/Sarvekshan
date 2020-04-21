@@ -16,7 +16,7 @@ How to use the app?
 ![Get ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/result.png)
 
 4. Also, you can checkout more information based on current location. Avail free online services from 3rd party.
-![View Location-based Info](![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
+![View Location-based Info](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
 
 5. Go back to home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested view the ePass & show it to authority at the place.
 ![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
