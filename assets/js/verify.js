@@ -1,6 +1,7 @@
 $('#scannedDataModel').on('hidden.bs.modal', function () {
     $("#scannedData").html("");
     $('.qrPreviewVideo')[0].play();
+    remoteDeviceId = null;
 });
 
 var currentScannedText = "";
@@ -83,7 +84,9 @@ function JsQRScannerReady() {
 }
 
 $('#eVerify').click(function () {
-    initialize();
+    setTimeout(() => {
+        join();
+    }, 1000);
 });
 
 var lastPeerId = String(new ClientJS().getFingerprint());
@@ -105,18 +108,14 @@ function initialize() {
         }
 
         if (id === null) {
-            $('#statusMsg').text("Error");
+            $('#statusMsg').text("Error! Refresh the page.");
             return;
         }
         console.log('ID: ' + peer.id);
-        $('#statusMsg').text("Connecting...");
-
-        setTimeout(() => {
-            join();
-        }, 1000);
+        $('#statusMsg').text("Online!");
     });
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Reconnecting...");
+        $('#statusMsg').text("Offline! Retrying...");
         console.log('Connection lost. Please reconnect');
 
         // Workaround for peer.reconnect deleting previous id
@@ -127,14 +126,16 @@ function initialize() {
     peer.on('close', function () {
         conn = null;
         console.log('Connection destroyed');
-        $('#statusMsg').text("Offline");
+        $('#statusMsg').text("Offline! Refresh the page.");
     });
     peer.on('error', function (err) {
         console.log(err);
-        $('#statusMsg').text("Error");
+        $('#statusMsg').text("Error! Refresh the page.");
     });
 };
 function join() {
+    $('#statusMsg').text("eVerification started...");
+
     // Close old connection
     if (conn) {
         conn.close();
@@ -146,7 +147,6 @@ function join() {
     });
 
     conn.on('open', function () {
-        $('#statusMsg').text("Connected");
         console.log("Connected to: " + conn.peer);
 
         setTimeout(() => {
@@ -158,7 +158,7 @@ function join() {
                 $('#statusMsg').text("Request Sent");
             } else {
                 console.log('Connection is closed');
-                $('#statusMsg').text("Connection Lost");
+                $('#statusMsg').text("Error! Retry eVerification.");
             }
         }, 1000);
     });
@@ -167,14 +167,16 @@ function join() {
         var totp = new jsOTP.totp();
         var timeCode = totp.getOtp(60, 8);
         if (data === timeCode)
-            $('#statusMsg').text("ePass Verified!");
+            $('#statusMsg').text("ePass Approved!");
         else
-            $('#statusMsg').text("Invalid Response");
+            $('#statusMsg').text("ePass Rejected!");
 
         console.log("Received: " + data);
     });
     conn.on('close', function () {
         console.log("Connection closed");
-        $('#statusMsg').text("Connection Closed");
+        $('#statusMsg').text("Online!");
     });
 };
+
+initialize();

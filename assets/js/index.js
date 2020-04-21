@@ -99,10 +99,6 @@ function removePass(element) {
     }
 }
 
-$('#savedQrCodeModal').on('shown.bs.modal', function () {
-    initialize();
-});
-
 var lastPeerId = String(new ClientJS().getFingerprint());
 var peer = null; // Own peer object
 var conn = null;
@@ -122,11 +118,11 @@ function initialize() {
         }
 
         if (id === null) {
-            $('#statusMsg').text("Error");
+            $('#statusMsg').text("Error! Refresh the page.");
             return;
         }
         console.log('ID: ' + peer.id);
-        $('#statusMsg').text("Waiting...");
+        $('#statusMsg').text("Online!");
     });
     peer.on('connection', function (c) {
         // Allow only a single connection
@@ -140,15 +136,15 @@ function initialize() {
 
         conn = c;
         console.log("Connected to: " + conn.peer);
-        $('#statusMsg').text("Connected");
+        $('#statusMsg').text("eVerification started...");
 
         setTimeout(() => {
             ready();
         }, 1000);
     });
     peer.on('disconnected', function () {
-        $('#statusMsg').text("Reconnecting...");
-        console.log('Connection lost. Please reconnect');
+        $('#statusMsg').text("Offline! Retrying...");
+        console.log('Offline! Refresh the page!');
 
         // Workaround for peer.reconnect deleting previous id
         peer.id = lastPeerId;
@@ -157,33 +153,35 @@ function initialize() {
     });
     peer.on('close', function () {
         conn = null;
-        $('#statusMsg').text("Offline");
+        $('#statusMsg').text("Offline! Refresh the page.");
         console.log('Connection destroyed');
     });
     peer.on('error', function (err) {
-        $('#statusMsg').text("Error");
+        $('#statusMsg').text("Error! Refresh the page.");
         console.log(err);
     });
 };
 
 function ready() {
     conn.on('data', function (data) {
-        $('#statusMsg').text("Request Received");
+        $('#statusMsg').text("Request received!");
         console.log("Data recieved");
         setTimeout(() => {
             if (conn && conn.open) {
                 conn.send(data);
-                $('#statusMsg').text("Response Sent");
+                $('#statusMsg').text("Response sent!");
                 console.log("Bounced: " + data)
             } else {
                 console.log('Connection is closed');
-                $('#statusMsg').text("Connection Lost");
+                $('#statusMsg').text("Error! Retry eVerification.");
             }
         }, 1000);
     });
     conn.on('close', function () {
         console.log('Connection reset');
         conn = null;
-        $('#statusMsg').text("Connection Closed");
+        $('#statusMsg').text("Online!");
     });
-}
+};
+
+initialize();
