@@ -2,6 +2,8 @@
  
 This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their privacy. This should allow lifting lock-down restrictons for people who are at lowest risk, perfectly healthy, & are essential-services/health/supply-chain workers. It will be really useful if government can issue a Unique ID to  people who are already tested for COVID-19 infection. It can be used in this app for strengthening the algorithm for concealing their identity.
 
+![Home Page](https://github.com/kaizenberg/Sarvekshan/blob/master/home.png)
+
 How is this design better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
 - Also, this tool doesn't store any user sensitive private information on any servers.
