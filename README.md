@@ -28,7 +28,10 @@ How it helps?
 
 Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent.
 
-The tool is using some opensource tech which can become a usecase in many other peer-to-peer authorization scenarios
+Following diagram shows how ePass generation & verification process can be implemented.
+![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/Sarvekshan%20-%20ePass%20Workflow.png)
+
+The tool is using opensource dependencies. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
 
 List of open source tools & libraries.
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -46,6 +49,7 @@ List of open source tools & libraries.
 - [WebRTC Peers](https://github.com/peers/peerjs)
 - [Device Fingerprinting](https://github.com/jackspirou/clientjs)
 - [Browser Storage](https://github.com/localForage/localForage)
+- [String Compression](https://github.com/pieroxy/lz-string)
 - [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 - [Penetration Testing/Vulnerability Scanner](https://observatory.mozilla.org/)
 
@@ -57,9 +61,11 @@ TODO
 - Use WebPack for assets optimization (minify, combine, uglify, watch, cache bursting)
 - reCaptcha/'I am not a robot' test (Optional)
 - Link to user privacy statement if needed (Optional)
-- Government UID Authentication
+- Government UID Authentication (Currently not supported for non-native apps / JavaScript clients)
+- Convert to SPA (Maybe Angular)
 
 Truth Table for COVID-19 Assessment Logic
+
 |Severe Respiratory Symptoms|Flu Symptoms|Close Contact|Traveled|Low Risk|Medium Risk|High Risk|Emergency|
 |-|-|-|-|-|-|-|-|
 |y|-|-|-|-|-|-|y|
