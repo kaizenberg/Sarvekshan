@@ -4,6 +4,12 @@ This tool is a PoC for showcasing how technology can be used to fight COVID-19 s
 
 ![Home Page](https://github.com/kaizenberg/Sarvekshan/blob/master/home.png)
 
+![Answer Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
+
+![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
+
+![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
+
 How is this design better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
 - Also, this tool doesn't store any user sensitive private information on any servers.
