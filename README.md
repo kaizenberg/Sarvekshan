@@ -13,7 +13,7 @@ How to use the app?
 - Authority at the place will open this same app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If ePass is approved you are allowed to enter. 
 - Additionally, if you accidentaly clear browser history you can click on Upload button to upload backed up copy of ePasses from your device into the app again.
 
-![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/demo.gif)
+![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
 How this design maybe better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
@@ -30,7 +30,8 @@ How it works?
 - This information can also be uploaded to government database as a virtual identity & location of visit or annoymous visitor.
 - ePass should not be deleted from the device that generated it otherwise verification will fail. In such case administration is allowed to either gather visitor's contact details, other identify, or deny entry.
 - Visitors with only Green colored QR code should be allowe to enter.
-![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
+
+![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
 
 How it may help?
 - This ensures only healthy people are allowed to visit their office or public places.
@@ -40,12 +41,7 @@ How it may help?
 
 # Technical Details
 
-Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent.
-
-Following diagram shows how ePass generation & verification process can be implemented.
-![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
-
-The tool is using opensource dependencies. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
+Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent. The tool uses only opensource technologies & libraries. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
 
 List of open source tools & libraries.
 - [Visual Studio Code](https://code.visualstudio.com/)
