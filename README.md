@@ -5,27 +5,15 @@ This tool is a PoC for showcasing how technology can be used to fight COVID-19 s
 With this proposed soution; government can track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See all screenshots below, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
 
 How to use the app?
+- Open the tool in your browser
+- Click on Generate button to view the Self-Screening page
+- Afer answering all questions, providing required details, & submitting the assessment you will get an ePass that will be valid for next 7 days. Click on it to download to your device as a backup. You can also print it if you cannot carry the device to public places that you plan to visit.
+- Also, you can checkout more information based on current location. Avail free online services from 3rd party.
+- Go back to home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested view the ePass & show it to authority at the place.
+- Authority at the place will open this same app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If ePass is approved you are allowed to enter. 
+- Additionally, if you accidentaly clear browser history you can click on Upload button to upload backed up copy of ePasses from your device into the app again.
 
-1. Open the tool in your browser
-![Home Page](https://github.com/kaizenberg/Sarvekshan/blob/master/home.png)
-
-2. Click on Generate button to view the Self-Screening page
-![View Survey](https://github.com/kaizenberg/Sarvekshan/blob/master/generate.png)
-
-3. Afer answering all questions, providing required details, & submitting the assessment you will get an ePass that will be valid for next 7 days. Click on it to download to your device as a backup. You can also print it if you cannot carry the device to public places that you plan to visit.
-![Get ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/result.png)
-
-4. Also, you can checkout more information based on current location. Avail free online services from 3rd party.
-![View Location-based Info](https://github.com/kaizenberg/Sarvekshan/blob/master/info.png)
-
-5. Go back to home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested view the ePass & show it to authority at the place.
-![View ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/view.png)
-
-6. Authority at the place will open this same app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If ePass is approved you are allowed to enter. 
-![Verify ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/verify.png)
-
-Additionally, if you accidentaly clear browser history you can click on Upload button to upload backed up copy of ePasses from your device into the app again.
-![Upload ePass](https://github.com/kaizenberg/Sarvekshan/blob/master/upload.png)
+![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/demo.gif)
 
 How this design maybe better?
 - This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
@@ -42,6 +30,7 @@ How it works?
 - This information can also be uploaded to government database as a virtual identity & location of visit or annoymous visitor.
 - ePass should not be deleted from the device that generated it otherwise verification will fail. In such case administration is allowed to either gather visitor's contact details, other identify, or deny entry.
 - Visitors with only Green colored QR code should be allowe to enter.
+![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
 How it may help?
 - This ensures only healthy people are allowed to visit their office or public places.
@@ -54,7 +43,7 @@ How it may help?
 Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent.
 
 Following diagram shows how ePass generation & verification process can be implemented.
-![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/workflow.png)
+![Workflow Diagram](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
 
 The tool is using opensource dependencies. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
 
