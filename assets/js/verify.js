@@ -19,7 +19,7 @@ function onQRCodeScanned(scannedText) {
         var decompressed = LZString.decompress(scannedText);
         jQuery.each(JSON.parse(decompressed), function (name, val) {
             if (name === "Device Id") remoteDeviceId = val;
-            if (name === "Created On") ePassTimestamp = val.getTime();
+            //if (name === "Created On") ePassTimestamp = val.getTime();
             html += "<div>" + name + ": " + val + "</div>";
         });
 
@@ -139,13 +139,13 @@ function initialize() {
 function join() {
     $('#statusMsg').text("eVerification started...");
 
-    if (ePassTimestamp < new Date().getTime() - (7 * 24 * 60 * 60 * 1000)) {
-        $('#statusMsg').text("ePass Expired!");
-        setTimeout(() => {
-            $('#statusMsg').text("Online!");
-        }, 2000);
-        return;
-    }
+    //if (ePassTimestamp < new Date().getTime() - (7 * 24 * 60 * 60 * 1000)) {
+    //    $('#statusMsg').text("ePass Expired!");
+    //    setTimeout(() => {
+    //        $('#statusMsg').text("Online!");
+    //    }, 2000);
+    //    return;
+    //}
 
     // Close old connection
     if (conn) {
