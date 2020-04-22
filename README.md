@@ -12,13 +12,13 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 - Click on Generate ePass (Blue) button
 - Take an online self-screening/assessment test to identify your level of risk of exposure to COVID-19 infection
 - Based on your answers the app will issue a colored QR Code. Color indicates your risk-level
- - Green for Low Risk
- - Blue for Medium Risk
- - Orange for High Risk
- - Red for Emergency
+    - Green for Low Risk
+    - Blue for Medium Risk
+    - Orange for High Risk
+    - Red for Emergency
 - The app also suggests further steps based on your answers, for e.g. it suggests if it is mandatory for you to get a lab test done for COVID-19 infection
- - It helps you find nearest ICMR approved test centers
- - It helps you view your travel history since January of this year if you have a Google account
+    - It helps you find nearest ICMR approved test centers
+    - It helps you view your travel history since January of this year if you have a Google account
 - If you wish to seek immediate help then you can provide your contact details & follow on-screen instruction to seamlessly forward your assessment answers & contact information to Government's WhatsApp helpline or Email address with one click
 - You can also avail free online consultation provided by 3rd party online aggregators / service providers
 
