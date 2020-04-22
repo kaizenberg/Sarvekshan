@@ -46,6 +46,14 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 - These labs will issue a unique number for each test they conduct which gets stored in government's database against patient's identity information such as Pan Card, Aadhaar Card, Driving License, Passport, etc.
 - Enter that unique number while taking the self-screening/assessment & that will generate Green QR code
 
+**How is my privacy protected?**
+- This app runs completely off of user's browser once the page is loaded
+- It doesn't store any information whatsoever as there is no backend or database for this app
+- You receive a digital surrogate identity in the form of the QR code so your real identity is never used in the process
+- QR Code does not store any health related or contact information of the user
+- Those who scan your QR code do not recive your contact or health information
+- Your location information in tracked indirectly and only if you visit public places
+
 **Can somebody steal my QR Code & use it?**
 - QR Code is just a unique identifier for the device that generated it
 - If QR code is intentionally shared with others, stolen by others, or fabricated by over-smart user then during verification that will be caught
