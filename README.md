@@ -1,6 +1,37 @@
-# Sarvekshan
- 
+# Sarvekshan #
+
 This tool is a **PoC** for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their **privacy & safety**. This should allow lifting of lock-down restrictions for at least people who are at lowest risk, perfectly healthy, & declared **COVID-19 Negative** by ICMR authorized test labs. **ePasses** can be issued to such people especially essential-services/health/supply-chain workers first so that they can resume critical services.
+
+![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
+
+## Demo ##
+
+**Generating ePass**
+1. Launch the app in the browser
+2. Click on Generate ePass button
+3. Answer Self-Assessment questions
+4. Provide contact details
+5. Send answers & contact details to Government's WhatsApp Number
+6. Or email to Government's Email address
+7. Or just call these Government's Helpline numbers
+8. Access helpful information & free services
+
+**Verifying ePass**
+1. Launch the app in the browser
+2. Click on Verify ePass button
+3. Allow access to device camera
+4. Ask the visitor to show you his QR code
+5. Scan the QR code
+6. Click on eVerify button to verify the device
+
+**Loading ePass file from backup**
+1. Launch the app in the browser
+2. Click on Upload ePass button
+3. Click on Browse button
+4. Search for saved ePass on your device
+5. Click Open button
+
+## FAQ ##
 
 **Who can use this app?**
 - Anybody with a smart phone & internet connectivity can access this app
@@ -50,7 +81,7 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 
 [**Note:** All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution]
 
-# Technical Details
+## Technical Details ##
 
 ![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
 
