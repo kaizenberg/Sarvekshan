@@ -4,6 +4,33 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 
 ![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
+## Demo ##
+
+**Generating ePass**
+1. Launch the app in the browser
+2. Click on Generate ePass button
+3. Answer Self-Assessment questions
+4. Provide contact details
+5. Send answers & contact details to Government's WhatsApp Number
+6. Or email to Government's Email address
+7. Or just call these Government's Helpline numbers
+8. Access helpful information & free services
+
+**Verifying ePass**
+1. Launch the app in the browser
+2. Click on Verify ePass button
+3. Allow access to device camera
+4. Ask the visitor to show you his QR code
+5. Scan the QR code
+6. Click on eVerify button to verify the device
+
+**Loading ePass file from backup**
+1. Launch the app in the browser
+2. Click on Upload ePass button
+3. Click on Browse button
+4. Search for saved ePass on your device
+5. Click Open button
+
 ## FAQ ##
 
 **Who can use this app?**
@@ -59,33 +86,6 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 - If QR code is intentionally shared with others, stolen by others, or fabricated by over-smart user then during verification that will be caught
 - If your device is damage or stolen then you will have to regenerate QR Code from a new device
 - All previously registered devices will be blacklisted
-
-## Demo ##
-
-**Generating ePass**
-1. Launch the app in the browser
-2. Click on Generate ePass button
-3. Answer Self-Assessment questions
-4. Provide contact details
-5. Send answers & contact details to Government's WhatsApp Number
-6. Or email to Government's Email address
-7. Or just call these Government's Helpline numbers
-8. Access helpful information & free services
-
-**Verifying ePass**
-1. Launch the app in the browser
-2. Click on Verify ePass button
-3. Allow access to device camera
-4. Ask the visitor to show you his QR code
-5. Scan the QR code
-6. Click on eVerify button to verify the device
-
-**Loading ePass file from backup**
-1. Launch the app in the browser
-2. Click on Upload ePass button
-3. Click on Browse button
-4. Search for saved ePass on your device
-5. Click Open button
 
 [**Note:** All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution]
 
