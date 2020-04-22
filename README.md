@@ -48,7 +48,7 @@ This tool is a **PoC** for showcasing how technology can be used to fight COVID-
 - If your device is damage or stolen then you will have to regenerate QR Code from a new device
 - All previously registered devices will be black listed
 
-[Note:All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution]
+[**Note:** All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution]
 
 # Technical Details
 
