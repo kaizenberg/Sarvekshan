@@ -1,45 +1,36 @@
 # Sarvekshan
  
-This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down. This should allow lifting of lock-down restrictons for at least people who are at lowest risk, perfectly healthy, & tested-negative by issuing them e-passes. e-Passes can be issued to essential-services/health/supply-chain workers first. 
+This tool is a PoC for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising safety & privacy. This should allow lifting of lock-down restrictons for at least people who are at lowest risk, perfectly healthy, & declared COVID-19 Negative. e-Passes can be issued to such people especially essential-services/health/supply-chain workers so that they can go out. With this proposed design; government can track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while they are outside. Idea is to help the country reboot its economical activities especially for MSMEs.
 
-With this proposed soution; government can track movement of these unique but anonymous users without compromising their privacy & hence also ensuring their safety while being outside. See all screenshots below, go through the workflow diagram, visit the app and provide your comments or suggestions on how this can be enhanced or fixed.
+Please see view the demo & workflow animations below. Then, visit the app to test it. Please provide your comments or suggestions on how this can be enhanced or fixed. Such tools can built without making huge investments & spending months. It can be used by ay country.
 
 How to use the app?
 - Open the tool in your browser
 - Click on Generate button to view the Self-Screening page
-- Afer answering all questions, providing required details, & submitting the assessment you will get an ePass that will be valid for next 7 days. Click on it to download to your device as a backup. You can also print it if you cannot carry the device to public places that you plan to visit.
+- After answering all questions, providing required details, & submitting the assessment you will get an ePass that will be valid for next 7 days. Click on it to download to your device as a backup. You can also print it if you cannot carry the device to public places that you plan to visit.
 - Also, you can checkout more information based on current location. Avail free online services from 3rd party.
-- Go back to home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested view the ePass & show it to authority at the place.
-- Authority at the place will open this same app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If ePass is approved you are allowed to enter. 
-- Additionally, if you accidentaly clear browser history you can click on Upload button to upload backed up copy of ePasses from your device into the app again.
+- At any time, you can go back to the home page to view all ePasses generated. You must carry this device or the printout to the place you are visiting. When requested show the ePass to the authority at public places.
+- Authority at the place will open this app on their device & click Verify button to scan your ePass. Both devices will talk to each-other automatically without revealing any user sensitive information. If your ePass is approved then you should be allowed to enter. 
+- Additionally, if you accidentally clear your browser's history & lose saved ePasses then you can click on Upload button to upload their backup copies from your device folders into the app again.
 
 ![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
 How this design maybe better?
-- This tool is more useful than Government of India's Arogya Setu App as it doesn't require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
-- Also, this tool doesn't store any user sensitive private information on any servers.
+- This tool is simple & lightweight than Government of India's Arogya Setu App as it does not require installation of an App, Bluetooth Connectivity, Continuous Publishing of User's Location.
+- Also, this tool doesn't store any user sensitive information as there is no backened of this application.
 - Information is directly stored on user's device & user has the right to download or delete it from the device as well.
-- This app shows how a one-stop-shop technical solution is more efficient than too many scattered resources that state & central governments are maintaining.
- 
-How it works?
-- People declare their current health status by taking an online screening/assessment & generate an ePass/QR Code which can be stored on the device or printed on paper.
-- Each QR code is only valid for 7 days from the date of its generation.
-- They can carry that ePass to public places like malls, theater, offices, factories, etc.
-- Admnistration/Security/Supervisors/Owners of that place can scan visitor ePasses using the same app to verify their authenticity by sending a web TOTP to the device that generated it.
-- If the TOTP is verified a copy of the ePass is stored on device that scanned it to serve as a proof of the visit.
-- This information can also be uploaded to government database as a virtual identity & location of visit or annoymous visitor.
-- ePass should not be deleted from the device that generated it otherwise verification will fail. In such case administration is allowed to either gather visitor's contact details, other identify, or deny entry.
-- Visitors with only Green colored QR code should be allowe to enter.
-
-![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
-
-How it may help?
-- This ensures only healthy people are allowed to visit their office or public places.
-- This keeps user's information competely private only until his health status changes to Blue, Orange, or Red.
-- So in the worse case scenario, if the visitor is later declared COVID-19 positive then it is possible to identify all the places & potentially infected people.
-- If government can use this idea then they can also issue ePasses using their own virtual identity issuer especially if they only want to issue them to people who have undergone COVID-19 medical lab tests.
+- This app shows how one-stop-shop technical solution are much better than many scattered resources that state & central governments are maintaining separately.
+- Only those with Green ePasses are allowed to go back to work.
+- In the worst-case-scenario if a visitor is later found COVID-19 positive then it is possible to identify which places he/she visited in past 7 days which helps in tracking others who may have been exposed to that person.
 
 # Technical Details
+
+- Each QR code is only valid for 7 days from the date of its generation.
+- Identity of the user is associated with their device. If they lose the device their ePasses will be invalid & hence should be regenerated.
+- Each ePass contains the unique Id of their device that generated it. If government wants they can integrate UID authentication with this app to enhance the uniqueness by issuing a unique token to augment device id.
+- Each scan of ePass creates a record that contains visitor's device Id, scanner device Id, & date-time. This will serve as information of which places these anonymous users are visiting. This information is also stored on scanner device currently. Government can decide if they want to synchronize with their servers.
+
+![Workflow](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/workflow.gif)
 
 Tool does not store, or distribute any user private information as there is no backend for this application. Also it doesn't collect any user information without their consent. The tool uses only opensource technologies & libraries. Together this whole idea can be enhanced & improved to fit many other peer-to-peer authorization scenarios.
 
