@@ -41,23 +41,27 @@ survey
 
 //------------Survey Custom Events-------------
 
-function launchWhatsAppElement() {
-    var appendUrl = "*" + survey.title + "*{#}{#}";
+function launchWhatsApp() {
+    var appendUrl = "*" + survey.title + "*%0D%0A" + getAssessmentResult();
+    window.open('https://wa.me/919013151515?text=' + appendUrl);
+};
+
+function launchEmail() {
+    $("#launchEmailElement").attr('href', `mailto:ncov2019@gov.in?subject=${survey.title}&body=${getAssessmentResult()}`);
+};
+
+function getAssessmentResult() {
+    var appendUrl = "";
     survey.getAllQuestions().map(function (q) {
         if (q.isParentVisible && !q.parent.readOnly) {
-            if (q.html !== undefined) {
-                appendUrl += "Question: ";
-                appendUrl += $('<div></div>').html(q.html.replace('</', '{#}</')).text() + "{#}"
-            }
             if (q.isAnswered) {
-                appendUrl += "Answer: *" + $('<div</div>').html(q.displayValue).text() + "*{#}{#}";
+                appendUrl += q.fullTitle + ": " + q.questionValue + "%0D%0A";
             }
         }
     })
-    appendUrl = encodeURIComponent(appendUrl);
-    appendUrl = appendUrl.replace(/%7B%23%7D/g, '%0A');
-    window.open('https://wa.me/919013151515?text=' + appendUrl);
-};
+
+    return appendUrl;
+}
 
 function toggleLanguage() {
     survey.locale = survey.locale === 'es' ? 'en' : 'es';
@@ -120,17 +124,23 @@ function generateQrCode(colorCode, riskLevel) {
 }
 
 function activateHyperlinks() {
-    var ele1 = document.getElementById("findTestingCentersElement");
-    if (ele1)
-        ele1.onclick = findTestingCenters;
+    setTimeout(function () {
+        var ele1 = document.getElementById("findTestingCentersElement");
+        if (ele1)
+            ele1.onclick = findTestingCenters;
 
-    var ele2 = document.getElementById("launchWhatsAppElement");
-    if (ele2)
-        ele2.onclick = launchWhatsAppElement;
+        var ele2 = document.getElementById("launchWhatsAppElement");
+        if (ele2)
+            ele2.onclick = launchWhatsApp;
 
-    var ele3 = document.getElementById("toggleLanguageElement");
-    if (ele3)
-        ele3.onclick = toggleLanguage;
+        var ele4 = document.getElementById("launchEmailElement");
+        if (ele4)
+            launchEmail();
+
+        var ele3 = document.getElementById("toggleLanguageElement");
+        if (ele3)
+            ele3.onclick = toggleLanguage;
+    }, 0);
 }
 
 //------------Survey Execution-------------

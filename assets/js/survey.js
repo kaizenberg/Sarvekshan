@@ -1,5 +1,4 @@
 var json = {
-    "locale": "es",
     "title": {
         "default": "COVID-19 Self Assessment",
         "es": "COVID-19 स्व-निर्धारण"
@@ -222,14 +221,252 @@ var json = {
             "visibleIf": "{Severe Respiratory Condition} = 'No'"
         },
         {
+            "name": "Page 6",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question1",
+                    "html": {
+                        "es": "<p>पूरा नाम</p>",
+                        "default": "<p>Please provide your full name</p>"
+                    }
+                },
+                {
+                    "type": "text",
+                    "name": "Name",
+                    "titleLocation": "hidden"
+                }
+            ],
+            "title": {
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
+            "name": "Page 7",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question2",
+                    "html": {
+                        "es": "<p>लिंग</p>",
+                        "default": "<p>Gender</p>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Gender",
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Male",
+                            "text": {
+                                "es": "पुरुष",
+                                "default": "Male"
+                            }
+                        },
+                        {
+                            "value": "Female",
+                            "text": {
+                                "es": "स्त्री",
+                                "default": "Female"
+                            }
+                        },
+                        {
+                            "value": "Other",
+                            "text": {
+                                "es": "अन्य",
+                                "default": "Other"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "title": {
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
+            "name": "Page 8",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question3",
+                    "html": {
+                        "es": "<p>आयु वर्ग<p>",
+                        "default": "<p>Age Group</p>"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "Age",
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Below 15",
+                            "text": {
+                                "es": "15 से नीचे",
+                                "default": "Below 15"
+                            }
+                        },
+                        {
+                            "value": "16 to 30",
+                            "text": {
+                                "es": "16 से 30",
+                                "default": "16 to 30"
+                            }
+                        },
+                        {
+                            "value": "31 to 60",
+                            "text": {
+                                "es": "31 से 60",
+                                "default": "31 to 60"
+                            }
+                        },
+                        {
+                            "value": "Above 60",
+                            "text": {
+                                "default": "Above 60",
+                                "es": "60 से ऊपर"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "title": {
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
+            "name": "Page 9",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question4",
+                    "html": {
+                        "es": "<p>मौजूदा स्वास्थ्य समस्याएं</p>",
+                        "default": "<p>Existing Health Conditions</p>"
+                    }
+                },
+                {
+                    "type": "checkbox",
+                    "name": "Ailments",
+                    "titleLocation": "hidden",
+                    "choices": [
+                        {
+                            "value": "Kidney Disease",
+                            "text": {
+                                "es": "पुरानी गुर्दे की बीमारी",
+                                "default": "Chronic Kidney Disease"
+                            }
+                        },
+                        {
+                            "value": "Lung Disease",
+                            "text": {
+                                "es": "पुरानी फेफड़ों की बीमारी",
+                                "default": "Chronic Lung Disease"
+                            }
+                        },
+                        {
+                            "value": "Neurological Disorders",
+                            "text": {
+                                "es": "मस्तिष्क संबंधी विकार",
+                                "default": "Neurological Disorders"
+                            }
+                        },
+                        {
+                            "value": "Liver Disease",
+                            "text": {
+                                "es": "यकृत की बीमारी",
+                                "default": "Liver Disease"
+                            }
+                        },
+                        {
+                            "value": "Diabetes",
+                            "text": {
+                                "es": "मधुमेह",
+                                "default": "Diabetes"
+                            }
+                        },
+                        {
+                            "value": "Heart Disease",
+                            "text": {
+                                "es": "दिल की बीमारी",
+                                "default": "Heart Disease"
+                            }
+                        },
+                        {
+                            "value": "Obesity",
+                            "text": {
+                                "es": "मोटापा (बीएमआई 40 से ऊपर)",
+                                "default": "Obesity (BMI Above 40)"
+                            }
+                        },
+                        {
+                            "value": "Immunocompromised",
+                            "text": {
+                                "es": "क्षतिग्रस्त/कमज़ोर रोगप्रतिकारक शक्ति (एचआईवी, कैंसर, आदि)",
+                                "default": "Immunocompromised (HIV, Cancer, etc)"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "title": {
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
+            "name": "Page 10",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question5",
+                    "html": {
+                        "es": "<p>मोबाइल/टेलीफोन नंबर</p>",
+                        "default": "<p>Mobile/Telephone Number</p>"
+                    }
+                },
+                {
+                    "type": "text",
+                    "name": "Phone",
+                    "titleLocation": "hidden"
+                }
+            ],
+            "title": {
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
+            "name": "Page 11",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "question6",
+                    "html": {
+                        "es": "<p>घर का पता</p>",
+                        "default": "<p>Home Address</p>"
+                    }
+                },
+                {
+                    "type": "text",
+                    "name": "Address",
+                    "titleLocation": "hidden"
+                }
+            ],
+            "title": {
+                "default": "Provide your contact information",
+                "es": "अपनी संपर्क जानकारी प्रदान करें"
+            }
+        },
+        {
             "name": "Low Risk",
             "elements": [
                 {
                     "type": "html",
                     "name": "R1",
                     "html": {
-                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a><p><strong><ul><li>You may be at Low Risk</li><li>Follow social isolation & suggested measures</li><li>Do self assessment again after 7 days</li></ul></strong></p><p>Dial the national helpline number below if your risk level changes.<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul><p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('green', 'Low');</script>",
-                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप कम जोखिम में हो सकते हैं</li><li>\nसामाजिक अलगाव और सुझाए गए उपायों का पालन करें</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('green', 'Low');</script>"
+                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a><p><strong><ul><li>You may be at Low Risk</li><li>Follow social isolation & suggested measures</li><li>Do self assessment again after 7 days</li></ul></strong></p><p>Dial the national helpline number below if your risk level changes.<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li><li>ncov2019@gov.in (Email)</li></ul><p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('green', 'Low');</script>",
+                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप कम जोखिम में हो सकते हैं</li><li>\nसामाजिक अलगाव और सुझाए गए उपायों का पालन करें</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li><li>Email: ncov2019@gov.in</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('green', 'Low');</script>"
                     }
                 }
             ],
@@ -244,8 +481,8 @@ var json = {
                     "type": "html",
                     "name": "R2",
                     "html": {
-                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a>\n<p><strong><ul><li>You may be at Medium Risk</li><li>Isolate yourself for 7 days to avoid infecting others</li><li>It is NOT necessary for you to get tested for COVID-19</li><li>Take the self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number given below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('blue', 'Medium');</script>",
-                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप मध्यम जोखिम में हो सकते हैं</li><li>दूसरे लोगों को संक्रमित करने से बचने के लिए 7 दिनों के लिए खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक नहीं है</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('blue', 'Medium');</script>"
+                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a>\n<p><strong><ul><li>You may be at Medium Risk</li><li>Isolate yourself for 7 days to avoid infecting others</li><li>It is NOT necessary for you to get tested for COVID-19</li><li>Take the self assessment again after 7 days</li></ul></strong></p>\n<p>\nDial the national helpline number given below if your risk level changes.\n<ul><li>+91-11-23978046</li><li>1075</li><li>+91 90131 51515 (WhatsApp)</li><li>ncov2019@gov.in (Email)</li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('blue', 'Medium');</script>",
+                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप मध्यम जोखिम में हो सकते हैं</li><li>दूसरे लोगों को संक्रमित करने से बचने के लिए 7 दिनों के लिए खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक नहीं है</li><li>7 दिनों के बाद फिर से स्व-निर्धारण करें</li></ul></strong></p>\n<P>\nयदि आपका जोखिम स्तर बदलता है तो नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li><li>WhatsApp: +91 90131 51515</li><li>Email: ncov2019@gov.in</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('blue', 'Medium');</script>"
                     }
                 }
             ],
@@ -260,8 +497,8 @@ var json = {
                     "type": "html",
                     "name": "R5",
                     "html": {
-                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a>\n<p><strong><ul><li>You may be at High Risk</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\nAdditionally you can;<ul><li>Find nearby <a id=\"findTestingCentersElement\" href=\"#\">Authorized Testing Centers</a>.</li>\n<li>Send your answers to <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp Helpline.</a></li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('orange', 'High');</script>\n",
-                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप उच्च जोखिम में हो सकते हैं</li><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li></ul>इसके अलावा आप;<ul><li>नज़दीकी <a id=\"findTestingCentersElement\" href=\"#\">अधिकृत परिक्षण केंद्र</a> ढूंढ सकते है।</li><li>अपने जवाब <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp हेल्पलाइन</a> पर भेज सकते हैं।</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('orange', 'High');</script>"
+                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<a download href=\"#\" id=\"qrCodePlaceholder\"></a>\n<p><strong><ul><li>You may be at High Risk</li><li>Immediately isolate yourself to avoid infecting others</li><li>It is necessary for you to get tested for COVID-19</li></ul></strong></p>\n<p>\nDial the national helpline number given below immediately.\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\nAdditionally you can;<ul><li>Find nearby <a id=\"findTestingCentersElement\" href=\"#\">Authorized Testing Centers</a></li>\n<li>Send your answers to <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp</a></li><li>Send your answers to  <a id=\"launchEmailElement\" href=\"#\" target=\"_top\">MyGov Email</a></li></ul>\n<p>For more information on COVID-19, please visit the website of <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\">Ministry of Health & Family Welfare</a>.</p><script>generateQrCode('orange', 'High');</script>\n",
+                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<a id=\"qrCodePlaceholder\" href=\"#\"></a>\n<p><strong><ul><li>आप उच्च जोखिम में हो सकते हैं</li><li>दूसरे लोगों को संक्रमित करने से बचने के लिए तुरंत खुद को अलग कर लें</li><li>COVID-19 का परीक्षण करवाना आपके लिए आवश्यक है</li></ul></strong></p>\n<P>\nनीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।\n<ul><li>+91-11-23978046</li><li>1075</li></ul>इसके अलावा आप;<ul><li>नज़दीकी <a id=\"findTestingCentersElement\" href=\"#\">अधिकृत परिक्षण केंद्र</a> ढूंढ सकते है।</li><li>अपने जवाब <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp हेल्पलाइन</a> पर भेज सकते हैं।</li><li>अपने जवाब <a id=\"launchEmailElement\" href=\"#\" target=\"_top\">MyGov Email ID</a> पर भेज सकते हैं।</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('orange', 'High');</script>"
                     }
                 }
             ],
@@ -276,8 +513,8 @@ var json = {
                     "type": "html",
                     "name": "R4",
                     "html": {
-                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<p><a download href=\"#\" id=\"qrCodePlaceholder\"></a></p>\n<strong><p>Dial the national helpline number given below immediately.</p></strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\nAdditionally you can;<ul><li>Find nearby <a id=\"findTestingCentersElement\" href=\"#\">Authorized Testing Centers</a>.</li>\n<li>Send your answers to <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp Helpline.</a></li></ul>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> Ministry of Health and Family Welfare</a>.</p><script>generateQrCode('red', 'Critical');</script>",
-                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<p><a id=\"qrCodePlaceholder\" href=\"#\"></a></p>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>इसके अलावा आप;<ul><li>नज़दीकी <a id=\"findTestingCentersElement\" href=\"#\">अधिकृत परिक्षण केंद्र</a> ढूंढ सकते है।</li><li>अपने जवाब <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp हेल्पलाइन</a> पर भेज सकते हैं।</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('red', 'Critical');</script>"
+                        "default": "<h2>Advice\n</h2><p>Your answers are stored in this QR Code. Click on it to download.</p>\n<p><a download href=\"#\" id=\"qrCodePlaceholder\"></a></p>\n<strong><p>Dial the national helpline number given below immediately.</p></strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>\nAdditionally you can;<ul><li>Find nearby <a id=\"findTestingCentersElement\" href=\"#\">Authorized Testing Centers</a></li>\n<li>Send your answers to <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp</a></li><li>Send your answers to  <a id=\"launchEmailElement\" href=\"#\" target=\"_top\">MyGov Email</a></li></ul>\n<p>For more information about COVID-19, please visit the website of the <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> Ministry of Health and Family Welfare</a>.</p><script>generateQrCode('red', 'Critical');</script>",
+                        "es": "<h2>सलाह</h2>\n<p>आपके उत्तर इस QR कोड में संग्रहीत हैं। डाउनलोड करने के लिए QR कोड पर क्लिक करें।</p>\n<p><a id=\"qrCodePlaceholder\" href=\"#\"></a></p>\n<p><strong>नीचे दिए गए राष्ट्रीय सहायता दूरध्वनी क्रमांक पर तुरंत संपर्क करें।</strong>\n<ul><li>+91-11-23978046</li><li>1075</li></ul>इसके अलावा आप;<ul><li>नज़दीकी <a id=\"findTestingCentersElement\" href=\"#\">अधिकृत परिक्षण केंद्र</a> ढूंढ सकते है।</li><li>अपने जवाब <a id=\"launchWhatsAppElement\" href=\"#\">MyGov WhatsApp हेल्पलाइन</a> पर भेज सकते हैं।</li><li>अपने जवाब <a id=\"launchEmailElement\" href=\"#\" target=\"_top\">MyGov Email ID</a> पर भेज सकते हैं।</li></ul>\n<p>COVID-19 के बारे में अधिक जानकारी के लिए, कृपया <a href=\"https://www.mohfw.gov.in/\" target=\"_blank\"> स्वास्थ्य और परिवार कल्याण मंत्रालय</a> की वेबसाइट पर जाएँ।</p><script>generateQrCode('red', 'Critical');</script>"
                     }
                 }
             ],
