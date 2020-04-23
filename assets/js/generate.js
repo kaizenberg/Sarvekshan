@@ -1,5 +1,9 @@
 //------------Survey Configuration-------------
 
+localforage.config({
+    name: 'sarvekshan.epass.saved'
+});
+
 Survey
     .StylesManager
     .applyTheme("modern");

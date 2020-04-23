@@ -1,6 +1,58 @@
 var remoteDeviceId;
 var ePassTimestamp;
 var currentScannedText = "";
+var currentLocationLati, currentLocationLongi;
+
+localforage.config({
+    name: 'sarvekshan.ePass.scanned'
+});
+
+function loadScannedPasses() {
+    $('#scannedPassesList').html("");
+    $('#scannedPassesList').append('<div class="row">');
+
+    localforage.keys().then(function (keys) {
+        if (keys.length == 0) {
+            $('#scannedPassesList').append(
+                `<div class="col">
+                    <div class="font-weight-light" style="margin-left:15px">
+                        <small>No Records!</small>
+                    </div>
+                </div>`);
+        }
+        else {
+            localforage.iterate(function (value, key, iterationNumber) {
+                $('#scannedPassesList').append(
+                    `<div class="col">
+                            <i class="fa fa-user text-info" style="font-size: 1.2em;" aria-hidden="true"></i>
+                            <span class="font-weight-light">${value.visitor} visited on ${value.datetime}</span>
+                        </div>`);
+            }).then(function () {
+                $('#scannedPassesList').append('</div>');
+            }
+            ).catch(function (err) {
+                $('#scannedPassesList').append('</div>');
+                console.log(err);
+            });
+        }
+    }).catch(function (err) {
+        $('#scannedPassesList').append('</div>');
+        console.log(err);
+    });
+}
+
+loadScannedPasses();
+
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            currentLocationLat = position.coords.latitude;
+            currentLocationLongi = position.coords.longitude;
+        });
+    }
+}
+
+getCurrentLocation();
 
 $('#scannedDataModel').on('hidden.bs.modal', function () {
     $("#scannedData").html("");
@@ -177,8 +229,29 @@ function join() {
     conn.on('data', function (data) {
         var totp = new jsOTP.totp();
         var timeCode = totp.getOtp(60, 8);
-        if (data === timeCode)
+        if (data === timeCode) {
             $('#statusMsg').text("ePass Approved!");
+
+            setTimeout(() => {
+                var registryEntry = {
+                    visitor: remoteDeviceId,
+                    place: lastPeerId,
+                    datetime: new Date(),
+                    latitude: currentLocationLati,
+                    longitude: currentLocationLongi
+                }
+
+                var recordId = String(UUID.generate());
+                localforage.setItem(recordId, registryEntry).then(function (value) {
+                    // Do other things once the value has been saved.
+                    console.log(recordId + " : Scanned to local storage");
+                    loadScannedPasses();
+                }).catch(function (err) {
+                    // This code runs if there were any errors
+                    console.log(err);
+                });
+            }, 0);
+        }
         else
             $('#statusMsg').text("ePass Rejected!");
 

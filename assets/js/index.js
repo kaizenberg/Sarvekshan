@@ -1,3 +1,7 @@
+localforage.config({
+    name: 'sarvekshan.epass.saved'
+});
+
 function loadSavedPasses() {
     localforage.keys().then(function (keys) {
         if (keys.length == 0) {
@@ -10,7 +14,7 @@ function loadSavedPasses() {
                         <div id="card:${key}" class="card text-dark shadow-sm rounded card-hover-pass">
                             <div class="card-body">
                                 <i class="fa fa-download text-info downloadButton" style="font-size: 1.2em" aria-hidden="true"></i>
-                                <span class="text-">${key}</span>
+                                <span class="font-weight-light">${key}</span>
                                 <button type="button" class="close" aria-label="Close">
                                     <span id="btn:${key}" class="deleteButton" aria-hidden="true">&times;</span>
                                 </button>

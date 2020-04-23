@@ -31,6 +31,8 @@
     <script type="text/javascript" src="assets/js/vendor/client.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/jsOTP.min.js"></script>
     <script type="text/javascript" src="assets/js/vendor/lz-string.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/uuid.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/localforage.min.js"></script>
 </head>
 
 <body>
@@ -55,12 +57,27 @@
     </nav>
     <br />
     <div class="container-fluid">
-        <div class="card shadow rounded">
-            <div class="card-header">Scan ePass</div>
-            <div class="card-body">
-                <div class="qrscanner" id="scanner"> </div>
+        <div class="row">
+            <div class="col">
+                <div class="card shadow rounded">
+                    <div class="card-header">Scan ePass</div>
+                    <div class="card-body card-body-full">
+                        <div class="qrscanner" id="scanner"> </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="row" style="padding-top: 20px;">
+            <div class="col">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Scanned ePasses</h5>
+                        <div id="scannedPassesList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal -->
         <div class="modal fade" id="scannedDataModel" tabindex="-1" role="dialog"
             aria-labelledby="scannedDataModelTitle" aria-hidden="true">
