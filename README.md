@@ -4,13 +4,13 @@ This app is a **PoC** for demonstrating how governments around the world can tak
 
 **Goals**
 
-- Enable government to track movement of such individuals without compromising their **privacy & safety** in public
-- Integrate all useful government & 3rd party services & resources pertaining to COVID-19
+- Enable government to track movement of such individuals without compromising their **privacy** & **safety** in public
+- Integrate all useful government & 3rd-party resources pertaining to COVID-19
 - Promote delivery of information through online survey to increase reach & feedback
 - Assist in issuing ePasses to those without smartphones as well
 - Persuade people to get lab tested to avail relief from lockdown restrictions
 - Allow essential-services/health/supply-chain workers resume their services without facing challenges
-- Help unoganized sector & daily wagers obtain temporary identity to avail relief packages
+- Help unoganized sector & daily-wagers obtain temporary identity to avail relief packages
 
 I built this app within 20 days without spending a dime, using mostly open-source technologies, & without deploying any infrastructure. I wish this reaches the government & they refer this to build better solutions or enhance existing Arogya Setu app.
 
@@ -20,28 +20,28 @@ I built this app within 20 days without spending a dime, using mostly open-sourc
 
 **Generating ePass**
 1. Launch the app in the browser
-2. Click on Generate ePass button
+2. Click on (Blue) Generate ePass button
 3. Answer Self-Assessment questions
 4. Provide contact details
 5. Send answers & contact details to Government's WhatsApp Number
 6. Or email to Government's Email address
-7. Or just call these Government's Helpline numbers
+7. Or just call on Government's Helpline numbers
 8. Access helpful information & free services
 
 **Verifying ePass**
 1. Launch the app in the browser
-2. Click on Verify ePass button
-3. Allow access to device camera
+2. Click on (Red) Verify ePass button
+3. Grant access to your location & device camera
 4. Ask the visitor to show you his QR code
-5. Scan the QR code
-6. Click on eVerify button to verify the device
+5. Scan the QR code (Invalid QR Code will be rejected immediately)
+6. Click on eVerify button to verify it
 
 **Loading ePass file from backup**
 1. Launch the app in the browser
-2. Click on Upload ePass button
+2. Click on (Green) Upload ePass button
 3. Click on Browse button
 4. Search for saved ePass on your device
-5. Click Open button
+5. Click on Open button
 
 ## FAQ ##
 
