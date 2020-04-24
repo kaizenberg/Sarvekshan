@@ -5,6 +5,7 @@ This app is a **PoC** for demonstrating how governments around the world can tak
 **Goals**
 
 - Enable government to track movement of such individuals without compromising their **privacy** & **safety** in public
+- Contact-tracing by back-tracking rather than invasive continuous monitoring 
 - Integrate all useful government & 3rd-party resources pertaining to COVID-19
 - Promote delivery of information through online survey to increase reach & feedback
 - Assist in issuing ePasses to those without smartphones as well
@@ -99,7 +100,7 @@ I built this app within 20 days without spending a dime, using mostly open-sourc
 - If your device is damage or stolen then you will have to regenerate QR Code from a new device
 - All previously registered devices will be blacklisted
 
-[**Note:** All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution]
+[**Note:** All integrations with government's systems are currently not implemented as this is just a prototype of the proposed solution.]
 
 ## Technical Details ##
 
@@ -128,6 +129,12 @@ List of open source tools & libraries.
 - [Penetration Testing/Vulnerability Scanner](https://observatory.mozilla.org/)
 
 These dependencies may be replaced after Node.js refactoring.
+
+**Expectations from the Government**
+- Expose API endpoint to allow JavaScript client's to perform UID authentication
+    - Register user's device by issuing it a unique ID which acts as surrogate identity
+- Expose API endpoint to POST a record of each visit/scan
+- Expose API endpoint to GET list of containment zones with their color code/category
 
 **TODO**
 - [ ] Node.js package management
