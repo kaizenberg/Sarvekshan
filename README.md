@@ -5,14 +5,14 @@ This app is a **PoC** for demonstrating how governments around the world can tak
 **Goals**
 
 - Enable government to track movement of such individuals without compromising their **privacy & safety** in public
-- Integrate all government & 3rd party services & resources
-- Promote delivery of information through online survey to increase the reach & feedback
+- Integrate all useful government & 3rd party services & resources pertaining to COVID-19
+- Promote delivery of information through online survey to increase reach & feedback
 - Assist in issuing ePasses to those without smartphones as well
 - Persuade people to get lab tested to avail relief from lockdown restrictions
 - Allow essential-services/health/supply-chain workers resume their services without facing challenges
 - Help unoganized sector & daily wagers obtain temporary identity to avail relief packages
 
-I built this app within 20 days without spending a dime, using mostly open-source technologies, & without deploying any infrastructure myself. I wish this reaches the government & they refer this to build better solutions or enhance existing Arogya Setu app.
+I built this app within 20 days without spending a dime, using mostly open-source technologies, & without deploying any infrastructure. I wish this reaches the government & they refer this to build better solutions or enhance existing Arogya Setu app.
 
 ![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
