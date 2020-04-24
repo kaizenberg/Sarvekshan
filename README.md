@@ -1,6 +1,6 @@
 # Sarvekshan #
 
-This app is a **PoC** for demonstrating how governments around the world can take systematic exit from lock-down by issuing **ePasses** to those who are not infected or clinically proven **COVID-19 Negative** by ICMR authorized test labs, & are at lowest risk of contracting infection.
+This app is a **PoC** for demonstrating how governments around the world can take systematic exit from lock-down by issuing **ePasses** to those who are not infected, or clinically proven **COVID-19 Negative** by authorized test labs, & are at lowest risk of contracting infection.
 
 **Goals**
 
