@@ -1,6 +1,18 @@
 # Sarvekshan #
 
-This tool is a **PoC** for showcasing how technology can be used to fight COVID-19 spread by identifying and tracking movement of people post lock-down without compromising their **privacy & safety**. This should allow lifting of lock-down restrictions for at least people who are at lowest risk, perfectly healthy, & declared **COVID-19 Negative** by ICMR authorized test labs. **ePasses** can be issued to such people especially essential-services/health/supply-chain workers first so that they can resume critical services.
+This app is a **PoC** for demonstrating how governments around the world can take systematic exit from lock-down by issuing **ePasses** to those who are not infected or clinically proven **COVID-19 Negative** by ICMR authorized test labs, & are at lowest risk of contracting infection.
+
+**Goals**
+
+- Enable government to track movement of such individuals without compromising their **privacy & safety** in public
+- Integrate all government & 3rd party services & resources
+- Promote delivery of information through online survey to increase the reach & feedback
+- Assist in issuing ePasses to those without smartphones as well
+- Persuade people to get lab tested to avail relief from lockdown restrictions
+- Allow essential-services/health/supply-chain workers resume their services without facing challenges
+- Help unoganized sector & daily wagers obtain temporary identity to avail relief packages
+
+I built this app within 20 days without spending a dime, using mostly open-source technologies, & without deploying any infrastructure myself. I wish this reaches the government & they refer this to build better solutions or enhance existing Arogya Setu app.
 
 ![Demo](https://github.com/kaizenberg/Sarvekshan/blob/master/assets/img/demo.gif)
 
