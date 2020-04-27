@@ -74,9 +74,17 @@ function toggleLanguage() {
     activateHyperlinks();
 }
 
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
 function findTestingCenters() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(openICMRWebsite);
+        navigator.geolocation.getCurrentPosition(openICMRWebsite, function (error) {
+            console.log(error);
+        }, options);
     } else {
         alert("Your location is not known or maps aren't working");
     }

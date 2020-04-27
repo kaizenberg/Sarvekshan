@@ -43,12 +43,20 @@ function loadScannedPasses() {
 
 loadScannedPasses();
 
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
 function getCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             currentLocationLat = position.coords.latitude;
             currentLocationLongi = position.coords.longitude;
-        });
+        }, function (error) {
+            console.log(error);
+        }, options);
     }
 }
 

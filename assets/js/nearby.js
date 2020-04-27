@@ -1,30 +1,6 @@
 var lat = 28.61;
 var long = 77.23;
 
-var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-
-function getCurrentLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            lat = position.coords.latitude;
-            long = position.coords.longitude;
-
-            initializeMap();
-        }, function (err) {
-            alert(err.message);
-            initializeMap();
-        }, options);
-    }
-    else
-        initializeMap();
-}
-
-getCurrentLocation();
-
 $(window).on('load resize', function () {
     $('#map').height($(this).height() - 110);
 });
@@ -126,3 +102,28 @@ function htmlStateData(data) {
             '<p>' + res.descriptio + '<br>' + res.pincode + '</p>' +
             '</div>';
 }
+
+
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+
+            initializeMap();
+        }, function (err) {
+            alert(err.message);
+            initializeMap();
+        }, options);
+    }
+    else
+        initializeMap();
+}
+
+getCurrentLocation();
