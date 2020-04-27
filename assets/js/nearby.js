@@ -103,7 +103,6 @@ function htmlStateData(data) {
             '</div>';
 }
 
-
 var options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -115,10 +114,9 @@ function getCurrentLocation() {
         navigator.geolocation.getCurrentPosition(function (position) {
             lat = position.coords.latitude;
             long = position.coords.longitude;
-
             initializeMap();
         }, function (err) {
-            alert(err.message);
+            console.log(err);
             initializeMap();
         }, options);
     }
