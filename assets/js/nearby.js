@@ -25,6 +25,7 @@ function showModal() {
 }
 
 function initializeMap() {
+    alert('Starting...');
     var map = new MapmyIndia.Map("map", { center: [lat, long], zoomControl: true, hybrid: true, search: true, location: true });
 
     L.marker([lat, long]).addTo(map);
