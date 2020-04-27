@@ -10,6 +10,8 @@ function getCurrentLocation() {
             initializeMap();
         });
     }
+    else
+        initializeMap();
 }
 
 getCurrentLocation();
