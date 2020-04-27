@@ -1,6 +1,12 @@
 var lat = 28.61;
 var long = 77.23;
 
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
 function getCurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -8,7 +14,9 @@ function getCurrentLocation() {
             long = position.coords.longitude;
 
             initializeMap();
-        });
+        }, function (err) {
+            initializeMap();
+        }, options);
     }
     else
         initializeMap();
@@ -25,7 +33,6 @@ function showModal() {
 }
 
 function initializeMap() {
-    alert('Starting...');
     var map = new MapmyIndia.Map("map", { center: [lat, long], zoomControl: true, hybrid: true, search: true, location: true });
 
     L.marker([lat, long]).addTo(map);
