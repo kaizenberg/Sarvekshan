@@ -14,6 +14,10 @@ function getCurrentLocation() {
 
 getCurrentLocation();
 
+$(window).on('load resize', function () {
+    $('#map').height($(this).height() - 110);
+});
+
 function showModal() {
     $('#legendModal').modal('show');
 }
