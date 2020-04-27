@@ -15,7 +15,7 @@ function getCurrentLocation() {
 
             initializeMap();
         }, function (err) {
-            alert(err);
+            alert(err.message);
             initializeMap();
         }, options);
     }
